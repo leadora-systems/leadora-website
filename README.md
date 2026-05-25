@@ -49,6 +49,8 @@ Without `GOOGLE_SHEETS_WEB_APP_URL`, dev mode logs submissions to the console; p
 3. Add env vars from `.env.example` (Google Sheets URL + secret)
 4. Point domain in **Hostinger DNS** to Vercel (see `docs/hostinger-dns-vercel.md`)
 
+**Production + staging pipeline:** see **`docs/deployment-pipeline.md`**
+
 ## Original draft
 
 Design reference: `draft/index.html`
