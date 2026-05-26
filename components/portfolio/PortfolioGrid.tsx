@@ -102,7 +102,7 @@ export function PortfolioGrid() {
               <Filter size={32} />
             </div>
             <h3 className="text-xl font-bold text-navy">No projects found</h3>
-            <p className="mt-2 text-muted">Try adjusting your search or filters to find what you're looking for.</p>
+            <p className="mt-2 text-muted">Try adjusting your search or filters to find what you&apos;re looking for.</p>
             <button
               onClick={() => { setActiveCategory("All"); setSearchQuery(""); }}
               className="mt-6 text-sm font-bold text-blue hover:underline"

@@ -19,7 +19,7 @@ export function Marquee({
 }: MarqueeProps) {
   const [emblaRef] = useEmblaCarousel(
     { loop: true, dragFree: true, containScroll: false },
-    [AutoScroll({ playInOut: false, speed })]
+    [AutoScroll({ speed })]
   );
 
   return (
