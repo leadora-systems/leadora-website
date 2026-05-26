@@ -62,9 +62,9 @@ export function HeroHeadline() {
   return (
     <h1
       className="fade-up-2 mb-6 flex min-h-[2.4em] flex-col items-center gap-0 text-center font-extrabold leading-[1.08] tracking-tight"
-      style={{ fontSize: "clamp(36px, 6vw, 76px)" }}
+      style={{ fontSize: "clamp(32px, 5vw, 64px)" }}
     >
-      <span className="block text-text">We Are</span>
+      <span className="block text-navy">We Are</span>
       <span className="relative block overflow-hidden">
         <span className="hero-anim-text relative block min-h-[1.1em]">
           {displayText}
