@@ -24,11 +24,6 @@ Open [http://localhost:3000](http://localhost:3000).
 See `.env.example`. Set up Google Sheets: **`docs/google-sheets-setup.md`**.
 
 Without `GOOGLE_SHEETS_WEB_APP_URL`, dev mode logs submissions to the console; production requires the URL.
-
-## Domain (Hostinger)
-
-**Cloudflare is not required.** Point Hostinger DNS to Vercel: **`docs/hostinger-dns-vercel.md`**.
-
 ## Pages
 
 | Route | Description |
