@@ -38,15 +38,4 @@ Without `GOOGLE_SHEETS_WEB_APP_URL`, dev mode logs submissions to the console; p
 | `/terms` | Terms & Conditions |
 | `/cookies` | Cookie Policy |
 
-## Deploy (Vercel)
 
-1. Push to GitHub
-2. Import project in Vercel
-3. Add env vars from `.env.example` (Google Sheets URL + secret)
-4. Point domain in **Hostinger DNS** to Vercel (see `docs/hostinger-dns-vercel.md`)
-
-## Original draft
-
-Design reference: `draft/index.html`
-
-Strategy doc: `stragety.md`
