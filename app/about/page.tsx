@@ -59,7 +59,7 @@ export default function AboutPage() {
                 <div className="flex flex-col gap-4">
                   {aboutDna.map((item) => (
                     <div key={item} className="flex items-center gap-3 text-[15px]">
-                      <span className="text-lg text-cyan">→</span>
+                      <span className="text-lg text-blue">→</span>
                       {item}
                     </div>
                   ))}
@@ -167,7 +167,7 @@ export default function AboutPage() {
             <div className="timeline">
               {timeline.map((item) => (
                 <div key={item.year} className="tl-item">
-                  <div className="tl-year text-[11px] font-bold tracking-widest text-cyan">
+                  <div className="tl-year text-[11px] font-bold tracking-widest text-blue">
                     {item.year}
                   </div>
                   <div className="tl-title font-syne text-base font-bold">
