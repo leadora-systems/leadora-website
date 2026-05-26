@@ -3,14 +3,14 @@ import { site } from "@/content/site";
 
 export function Footer() {
   return (
-    <footer className="border-t border-glass-border bg-navy2 py-16">
+    <footer className="border-t border-glass-border bg-lightgray py-16">
       <div className="container">
         <div className="footer-grid">
           <div>
             <Link href="/" className="mb-3.5 inline-flex items-center gap-2.5 no-underline">
               <div className="logo-mark">L</div>
-              <span className="font-syne text-xl font-extrabold text-text">
-                LEADORA <span className="text-cyan">SYSTEMS</span>
+              <span className="font-syne text-xl font-extrabold text-navy">
+                LEADORA <span className="text-blue">SYSTEMS</span>
               </span>
             </Link>
             <p className="mt-3.5 text-sm leading-relaxed text-muted">
@@ -26,13 +26,14 @@ export function Footer() {
                 ["/", "Home"],
                 ["/about", "About Us"],
                 ["/services", "Services"],
+                ["/portfolio", "Portfolio"],
                 ["/careers", "Careers"],
                 ["/contact", "Contact"],
               ].map(([href, label]) => (
                 <li key={href} className="mb-2.5">
                   <Link
                     href={href}
-                    className="text-sm text-muted no-underline hover:text-cyan"
+                    className="text-sm text-muted no-underline hover:text-blue"
                   >
                     {label}
                   </Link>
@@ -55,7 +56,7 @@ export function Footer() {
                 <li key={label} className="mb-2.5">
                   <Link
                     href="/services"
-                    className="text-sm text-muted no-underline hover:text-cyan"
+                    className="text-sm text-muted no-underline hover:text-blue"
                   >
                     {label}
                   </Link>
@@ -70,7 +71,7 @@ export function Footer() {
               <li className="mb-2.5">
                 <a
                   href={`mailto:${site.email}`}
-                  className="text-sm text-muted no-underline hover:text-cyan"
+                  className="text-sm text-muted no-underline hover:text-blue"
                 >
                   {site.email}
                 </a>
@@ -91,13 +92,13 @@ export function Footer() {
         <div className="mt-6 flex flex-wrap items-center justify-between gap-3 text-[13px] text-muted">
           <span>© 2025 {site.legalName}. All rights reserved.</span>
           <div className="flex gap-5">
-            <Link href="/privacy" className="no-underline hover:text-cyan">
+            <Link href="/privacy" className="no-underline hover:text-blue">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="no-underline hover:text-cyan">
+            <Link href="/terms" className="no-underline hover:text-blue">
               Terms & Conditions
             </Link>
-            <Link href="/cookies" className="no-underline hover:text-cyan">
+            <Link href="/cookies" className="no-underline hover:text-blue">
               Cookie Policy
             </Link>
           </div>
