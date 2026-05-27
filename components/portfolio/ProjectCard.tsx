@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink, Layers } from "lucide-react";
+import Image from "next/image";
 import { Project } from "@/content/projects";
 
 interface ProjectCardProps {
@@ -42,9 +43,9 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
           <div className="flex items-center gap-3">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-lightgray shadow-inner transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
               {project.clientLogo ? (
-                <img src={project.clientLogo} alt={project.clientName} className="h-8 w-8 rounded-lg object-cover" />
+                <Image src={project.clientLogo} alt={project.clientName} width={32} height={32} className="h-8 w-8 rounded-lg object-cover" />
               ) : (
-                <span className="font-syne text-sm font-bold text-blue">{project.clientName.charAt(0)}</span>
+                <span className="font-montserrat text-sm font-bold text-blue">{project.clientName.charAt(0)}</span>
               )}
             </div>
             <div>
@@ -60,17 +61,18 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
         </div>
 
         {/* Image Preview */}
-        <div className="relative mb-5 overflow-hidden rounded-xl">
-          <img 
+        <div className="relative mb-5 overflow-hidden rounded-xl h-48 w-full">
+          <Image 
             src={project.mainImage} 
             alt={project.title} 
-            className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-110"
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
         </div>
 
         {/* Content */}
-        <h3 className="mb-2 font-syne text-lg font-bold text-navy group-hover:text-blue transition-colors">
+        <h3 className="mb-2 font-montserrat text-lg font-bold text-navy group-hover:text-blue transition-colors">
           {project.title}
         </h3>
         <p className="mb-4 line-clamp-2 text-sm leading-relaxed text-navy/70">

@@ -47,7 +47,7 @@ function Counter({ value, label }: { value: string, label: string }) {
 
   return (
     <div ref={ref} className="text-center p-6 rounded-2xl border border-glass-border bg-white shadow-sm transition-all hover:shadow-md">
-      <div className="font-syne text-3xl font-extrabold grad-text mb-2">
+      <div className="font-montserrat text-3xl font-extrabold grad-text mb-2">
         {count}{suffix}
       </div>
       <div className="text-xs font-bold uppercase tracking-widest text-muted">

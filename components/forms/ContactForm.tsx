@@ -42,7 +42,7 @@ export function ContactForm() {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className="apply-form !mt-0">
-        <h3 className="mb-6 font-syne text-xl font-bold">Send a Message</h3>
+        <h3 className="mb-6 font-montserrat text-xl font-bold">Send a Message</h3>
         <div className="form-grid">
           <div className="form-group flex flex-col gap-2">
             <label>Full Name *</label>

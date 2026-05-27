@@ -95,7 +95,7 @@ export default function CareersPage() {
             {jobs.map((job) => (
               <div key={job.title} className="job-card">
                 <div>
-                  <h4 className="font-syne text-base font-bold">{job.title}</h4>
+                  <h4 className="font-montserrat text-base font-bold">{job.title}</h4>
                   <div className="mt-1.5 flex flex-wrap gap-2.5">
                     {job.badges.map((badge) => (
                       <span key={badge} className="job-badge">
