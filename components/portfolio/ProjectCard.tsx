@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Layers } from "lucide-react";
 import { Project } from "@/content/projects";
+import Image from "next/image";
 
 interface ProjectCardProps {
   project: Project;
@@ -42,7 +43,13 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
           <div className="flex items-center gap-3">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-lightgray shadow-inner transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
               {project.clientLogo ? (
-                <img src={project.clientLogo} alt={project.clientName} className="h-8 w-8 rounded-lg object-cover" />
+                <Image
+                  src={project.clientLogo}
+                  alt={project.clientName}
+                  width={32}
+                  height={32}
+                  className="rounded-lg object-cover"
+                />
               ) : (
                 <span className="font-syne text-sm font-bold text-blue">{project.clientName.charAt(0)}</span>
               )}
@@ -60,11 +67,13 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
         </div>
 
         {/* Image Preview */}
-        <div className="relative mb-5 overflow-hidden rounded-xl">
-          <img 
+        <div className="relative h-48 mb-5 overflow-hidden rounded-xl">
+          <Image 
             src={project.mainImage} 
             alt={project.title} 
-            className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-110"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
         </div>

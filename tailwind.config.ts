@@ -22,7 +22,9 @@ const config: Config = {
       },
       fontFamily: {
         syne: ["var(--font-syne)", "sans-serif"],
+        montserrat: ["var(--font-montserrat)", "sans-serif"],
         sans: ["var(--font-inter)", "sans-serif"],
+        inter: ["var(--font-inter)", "sans-serif"],
       },
       backgroundImage: {
         grad: "linear-gradient(135deg, #1E90FF, #00C2FF)",
