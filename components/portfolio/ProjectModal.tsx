@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Calendar, Target, Zap, Users, Globe, ChevronRight } from "lucide-react";
 import { Project } from "@/content/projects";
@@ -42,9 +43,10 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           <div className="h-full overflow-y-auto">
             {/* Banner Image */}
             <div className="relative h-64 w-full md:h-80">
-              <img
+              <Image
                 src={project.mainImage}
                 alt={project.title}
+                fill
                 className="h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent" />

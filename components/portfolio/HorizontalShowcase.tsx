@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useMotionValue } from "framer-motion";
+import Image from "next/image";
 import { ChevronLeft, ChevronRight, ArrowRight, Layers } from "lucide-react";
 import { Project, projects } from "@/content/projects";
 
@@ -169,7 +170,7 @@ export function HorizontalShowcase({ onSelectProject }: HorizontalShowcaseProps)
                             <div className="flex items-center gap-3">
                               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-lightgray shadow-inner">
                                 {project.clientLogo ? (
-                                  <img src={project.clientLogo} alt={project.clientName} className="h-6 w-6 rounded-lg object-cover" />
+                                  <Image src={project.clientLogo} alt={project.clientName} width={24} height={24} className="h-6 w-6 rounded-lg object-cover" />
                                 ) : (
                                   <span className="font-syne text-xs font-bold text-blue">{project.clientName.charAt(0)}</span>
                                 )}
@@ -228,9 +229,10 @@ export function HorizontalShowcase({ onSelectProject }: HorizontalShowcaseProps)
 
                       {/* Right Column: Hero Image Preview */}
                       <div className="col-span-1 md:col-span-5 relative h-48 md:h-full overflow-hidden border-t md:border-t-0 md:border-l border-glass-border">
-                        <img 
+                        <Image 
                           src={project.mainImage} 
-                          alt={project.title} 
+                          alt={project.title}
+                          fill
                           className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1500ms] ease-out hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-white via-white/10 to-transparent" />

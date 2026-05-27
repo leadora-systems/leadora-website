@@ -316,3 +316,11 @@
   -webkit-text-fill-color: transparent;
   animation: gradientShift 3s linear infinite;
 }
+
+/* Custom CSS keyframe spin definition */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
