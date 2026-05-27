@@ -1,102 +1,96 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
-import { heroStats, site } from "@/content/site";
+import { ChevronRight, ArrowRight } from "lucide-react";
+import { site } from "@/content/site";
+import { ParticleMesh } from "@/components/ui/ParticleMesh";
 import { HeroHeadline } from "./HeroHeadline";
 
 export function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center overflow-hidden pb-20 pt-[120px]"
+      className="relative flex min-h-[100vh] items-center overflow-hidden bg-black pt-[100px]"
     >
+      {/* 1. Animated Particle Mesh background */}
+      <div className="absolute inset-0 z-0">
+        <ParticleMesh />
+      </div>
+
+      {/* 2. Soft glowing ambient lights */}
       <div
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute -right-[20%] top-[20%] z-[1] h-[600px] w-[600px] rounded-full blur-[120px]"
+        style={{
+          background: "radial-gradient(circle, rgba(30,144,255,0.15), transparent 70%)",
+        }}
+      />
+      <div
+        className="pointer-events-none absolute -left-[10%] bottom-[0%] z-[1] h-[500px] w-[500px] rounded-full blur-[120px]"
+        style={{
+          background: "radial-gradient(circle, rgba(0,194,255,0.1), transparent 70%)",
+        }}
+      />
+
+      {/* 3. Dark Overlay for readability */}
+      <div 
+        className="pointer-events-none absolute inset-0 z-[1]"
         style={{
           background: `
-            radial-gradient(ellipse 80% 60% at 50% -10%, rgba(30,144,255,.08) 0%, transparent 70%),
-            radial-gradient(ellipse 40% 40% at 90% 60%, rgba(0,194,255,.06) 0%, transparent 60%),
-            radial-gradient(ellipse 30% 30% at 10% 80%, rgba(255,140,66,.05) 0%, transparent 60%)
-          `,
-        }}
-      />
-      <div
-        className="pointer-events-none absolute inset-0 opacity-100"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(30,144,255,.05) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(30,144,255,.05) 1px, transparent 1px)
-          `,
-          backgroundSize: "60px 60px",
-          maskImage:
-            "radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%)",
-          animation: "gridDrift 12s linear infinite",
-        }}
-      />
-      <div
-        className="pointer-events-none absolute -right-[100px] -top-20 z-0 h-[380px] w-[380px] rounded-full blur-[72px]"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(30,144,255,.08), transparent 70%)",
-          animation: "orbFloat 8s ease-in-out infinite",
-        }}
-      />
-      <div
-        className="pointer-events-none absolute -left-20 bottom-[60px] z-0 h-[280px] w-[280px] rounded-full blur-[72px]"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(0,194,255,.08), transparent 70%)",
-          animation: "orbFloat 10s ease-in-out infinite reverse",
+            linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.8) 100%)
+          `
         }}
       />
 
-      <div className="container relative z-[2] w-full">
-        <div className="text-center">
-          <div className="fade-up mb-8 inline-flex items-center gap-2 rounded-full border border-blue/25 bg-blue/10 px-4 py-1.5 text-xs uppercase tracking-widest text-blue">
-            <span className="h-1.5 w-1.5 rounded-full bg-blue" />
-            IT Consulting & Software Engineering
-          </div>
-
-          <div className="fade-up-2 mb-6">
-            <div className="logo-mark mx-auto mb-5 h-16 w-16 rounded-2xl text-[28px]">
-              L
+      <div className="container relative z-[3] w-full pt-10 pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 items-end">
+          
+          {/* Left Column: Massive Headline & CTA */}
+          <div className="lg:col-span-7 flex flex-col justify-end lg:pr-4">
+            <div className="fade-up mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white backdrop-blur-md">
+              <span className="h-1.5 w-1.5 rounded-full bg-blue animate-pulse" />
+              Global IT Consulting
             </div>
-            <div className="font-syne text-[13px] font-bold uppercase tracking-[4px] text-muted">
-              {site.legalName}
-            </div>
-          </div>
 
-          <HeroHeadline />
+            <HeroHeadline />
 
-          <p className="fade-up-3 mx-auto mb-10 max-w-[600px] text-[clamp(14px,1.6vw,16px)] leading-relaxed text-muted">
-            Scalable Software Solutions, Cloud Infrastructure &amp; Modern
-            Enterprise Applications — built for the businesses of tomorrow.
-          </p>
-
-          <div className="fade-up-4 flex flex-wrap justify-center gap-3.5">
-            <Link href="/contact" className="btn-primary">
-              <ChevronRight size={16} />
-              Get Started
-            </Link>
-            <Link href="/services" className="btn-outline">
-              Our Services
-            </Link>
-            <Link href="/careers" className="btn-outline">
-              Careers
-            </Link>
-          </div>
-
-          <div className="fade-up-4 mt-[72px] flex flex-wrap justify-center gap-10 border-t border-glass-border pt-12">
-            {heroStats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="font-syne text-[28px] font-extrabold grad-text">
-                  {stat.value}
+            <div className="fade-up-4 flex flex-wrap items-center gap-6 mt-12">
+              <Link 
+                href="/services" 
+                className="group relative flex items-center gap-3 overflow-hidden rounded-md bg-blue px-6 py-4 text-sm font-bold text-white transition-all hover:bg-blue/80 hover:shadow-[0_0_30px_rgba(30,144,255,0.4)]"
+              >
+                <span>Explore Solutions</span>
+                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-white/20 transition-transform group-hover:translate-x-1">
+                  <ArrowRight size={14} />
                 </div>
-                <div className="mt-1 text-[13px] text-muted">{stat.label}</div>
-              </div>
-            ))}
+              </Link>
+              <Link 
+                href="/contact" 
+                className="group flex items-center gap-2 text-sm font-bold text-white transition-colors hover:text-blue"
+              >
+                Contact Us <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
           </div>
+
+          {/* Right Column: Statement */}
+          <div className="lg:col-span-5 fade-up-3 lg:pb-6">
+            <div className="border-l-2 border-blue pl-6">
+              <h3 className="text-xl font-bold text-white mb-3">Empowering the digital era</h3>
+              <p className="text-[15px] leading-relaxed text-gray-400 font-medium">
+                We deliver end-to-end IT consulting and software engineering to help your business scale securely. From legacy modernization to intelligent cloud architectures, we build for the future.
+              </p>
+              <Link 
+                href="/portfolio" 
+                className="mt-6 inline-flex items-center gap-2 text-[13px] font-bold uppercase tracking-wider text-white hover:text-blue transition-colors"
+              >
+                View Portfolio
+                <span className="flex h-5 w-5 items-center justify-center bg-blue text-white">
+                  <ChevronRight size={14} />
+                </span>
+              </Link>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

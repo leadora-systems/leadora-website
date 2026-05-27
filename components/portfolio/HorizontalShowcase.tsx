@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useMotionValue } from "framer-motion";
 import { ChevronLeft, ChevronRight, ArrowRight, Layers } from "lucide-react";
+import Image from "next/image";
 import { Project, projects } from "@/content/projects";
 
 interface HorizontalShowcaseProps {
@@ -11,7 +12,6 @@ interface HorizontalShowcaseProps {
 
 export function HorizontalShowcase({ onSelectProject }: HorizontalShowcaseProps) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
   const [windowWidth, setWindowWidth] = useState(1024); // Hydration safe default
   const dragX = useMotionValue(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -26,14 +26,13 @@ export function HorizontalShowcase({ onSelectProject }: HorizontalShowcaseProps)
     }
   }, []);
 
-  // Auto-play feature
+  // Auto-play feature (continuous)
   useEffect(() => {
-    if (isHovered) return;
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % projects.length);
-    }, 6000);
+    }, 5000);
     return () => clearInterval(interval);
-  }, [isHovered]);
+  }, []);
 
   const handleNext = () => {
     setActiveIndex((prev) => (prev + 1) % projects.length);
@@ -84,8 +83,6 @@ export function HorizontalShowcase({ onSelectProject }: HorizontalShowcaseProps)
   return (
     <div 
       className="relative w-full py-16 overflow-hidden select-none"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       ref={containerRef}
     >
       {/* Dynamic Ambient Background Glow */}
@@ -169,9 +166,9 @@ export function HorizontalShowcase({ onSelectProject }: HorizontalShowcaseProps)
                             <div className="flex items-center gap-3">
                               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-lightgray shadow-inner">
                                 {project.clientLogo ? (
-                                  <img src={project.clientLogo} alt={project.clientName} className="h-6 w-6 rounded-lg object-cover" />
+                                  <Image src={project.clientLogo} alt={project.clientName} width={24} height={24} className="h-6 w-6 rounded-lg object-cover" />
                                 ) : (
-                                  <span className="font-syne text-xs font-bold text-blue">{project.clientName.charAt(0)}</span>
+                                  <span className="font-montserrat text-xs font-bold text-blue">{project.clientName.charAt(0)}</span>
                                 )}
                               </div>
                               <div>
@@ -188,7 +185,7 @@ export function HorizontalShowcase({ onSelectProject }: HorizontalShowcaseProps)
                           </div>
 
                           {/* Titles */}
-                          <h3 className="font-syne text-xl md:text-2xl lg:text-3xl font-extrabold text-navy leading-tight mb-3">
+                          <h3 className="font-montserrat text-xl md:text-2xl lg:text-3xl font-extrabold text-navy leading-tight mb-3">
                             {project.title}
                           </h3>
                           <p className="text-xs md:text-sm lg:text-base leading-relaxed text-navy/80 mb-5 line-clamp-3 md:line-clamp-4">
@@ -228,9 +225,10 @@ export function HorizontalShowcase({ onSelectProject }: HorizontalShowcaseProps)
 
                       {/* Right Column: Hero Image Preview */}
                       <div className="col-span-1 md:col-span-5 relative h-48 md:h-full overflow-hidden border-t md:border-t-0 md:border-l border-glass-border">
-                        <img 
+                        <Image 
                           src={project.mainImage} 
                           alt={project.title} 
+                          fill
                           className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1500ms] ease-out hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-white via-white/10 to-transparent" />
@@ -259,7 +257,7 @@ export function HorizontalShowcase({ onSelectProject }: HorizontalShowcaseProps)
           
           {/* Animated Project Counter: e.g., 01 / 04 */}
           <div className="flex items-center gap-4">
-            <span className="font-syne text-lg font-bold text-navy">
+            <span className="font-montserrat text-lg font-bold text-navy">
               {String(activeIndex + 1).padStart(2, "0")}
             </span>
             <div className="w-24 h-1 bg-blue/10 rounded-full overflow-hidden relative">
@@ -270,7 +268,7 @@ export function HorizontalShowcase({ onSelectProject }: HorizontalShowcaseProps)
                 transition={{ type: "spring", stiffness: 100, damping: 15 }}
               />
             </div>
-            <span className="font-syne text-xs font-bold text-muted">
+            <span className="font-montserrat text-xs font-bold text-muted">
               {String(projects.length).padStart(2, "0")}
             </span>
           </div>
