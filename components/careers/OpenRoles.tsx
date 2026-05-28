@@ -33,10 +33,10 @@ export const enrichedJobs = [
     icon: <Terminal className="w-5 h-5 text-cyan-600" />,
     glow: "rgba(0, 194, 255, 0.15)",
     tagClass: "text-cyan-600 bg-cyan-50 border-cyan-100",
-    hoverBgClass: "hover:bg-cyan-500/[0.025] hover:border-cyan-500/20 hover:shadow-[0_20px_40px_rgba(0,194,255,0.06)]",
-    hoverTextClass: "group-hover:text-cyan-600",
-    hoverIconBgClass: "group-hover:bg-cyan-500/[0.04] group-hover:border-cyan-500/20",
-    hoverBtnClass: "group-hover:from-cyan-500 group-hover:to-blue-600"
+    hoverBgClass: "hover:bg-cyan-50/30 hover:border-cyan-200/50",
+    hoverTextClass: "group-hover:text-cyan-700",
+    hoverIconBgClass: "group-hover:bg-cyan-50 group-hover:border-cyan-100",
+    hoverBtnClass: "hover:bg-cyan-50 hover:text-cyan-700 hover:border-cyan-200"
   },
   {
     title: "React / Frontend Engineer",
@@ -48,12 +48,12 @@ export const enrichedJobs = [
     isUrgent: true,
     tag: "Front-End",
     icon: <Layout className="w-5 h-5 text-blue-600" />,
-    glow: "rgba(30, 144, 255, 0.15)",
+    glow: "rgba(30, 144, 255, 0.05)",
     tagClass: "text-blue-600 bg-blue-50 border-blue-100",
-    hoverBgClass: "hover:bg-blue-500/[0.025] hover:border-blue-500/20 hover:shadow-[0_20px_40px_rgba(30,144,255,0.06)]",
-    hoverTextClass: "group-hover:text-blue-600",
-    hoverIconBgClass: "group-hover:bg-blue-500/[0.04] group-hover:border-blue-500/20",
-    hoverBtnClass: "group-hover:from-blue-500 group-hover:to-indigo-600"
+    hoverBgClass: "hover:bg-blue-50/30 hover:border-blue-200/50",
+    hoverTextClass: "group-hover:text-blue-700",
+    hoverIconBgClass: "group-hover:bg-blue-50 group-hover:border-blue-100",
+    hoverBtnClass: "hover:bg-blue-50 hover:text-blue-700 hover:border-blue-200"
   },
   {
     title: "Azure Cloud / DevOps Engineer",
@@ -65,12 +65,12 @@ export const enrichedJobs = [
     isUrgent: false,
     tag: "DevOps",
     icon: <Cloud className="w-5 h-5 text-indigo-600" />,
-    glow: "rgba(99, 102, 241, 0.15)",
+    glow: "rgba(99, 102, 241, 0.05)",
     tagClass: "text-indigo-600 bg-indigo-50 border-indigo-100",
-    hoverBgClass: "hover:bg-indigo-500/[0.025] hover:border-indigo-500/20 hover:shadow-[0_20px_40px_rgba(99,102,241,0.06)]",
-    hoverTextClass: "group-hover:text-indigo-600",
-    hoverIconBgClass: "group-hover:bg-indigo-500/[0.04] group-hover:border-indigo-500/20",
-    hoverBtnClass: "group-hover:from-indigo-500 group-hover:to-violet-600"
+    hoverBgClass: "hover:bg-indigo-50/30 hover:border-indigo-200/50",
+    hoverTextClass: "group-hover:text-indigo-700",
+    hoverIconBgClass: "group-hover:bg-indigo-50 group-hover:border-indigo-100",
+    hoverBtnClass: "hover:bg-indigo-50 hover:text-indigo-700 hover:border-indigo-200"
   },
   {
     title: "Digital Marketing Executive",
@@ -82,12 +82,12 @@ export const enrichedJobs = [
     isUrgent: false,
     tag: "Growth",
     icon: <Megaphone className="w-5 h-5 text-rose-600" />,
-    glow: "rgba(244, 63, 94, 0.15)",
+    glow: "rgba(244, 63, 94, 0.05)",
     tagClass: "text-rose-600 bg-rose-50 border-rose-100",
-    hoverBgClass: "hover:bg-rose-500/[0.025] hover:border-rose-500/20 hover:shadow-[0_20px_40px_rgba(244,63,94,0.06)]",
-    hoverTextClass: "group-hover:text-rose-600",
-    hoverIconBgClass: "group-hover:bg-rose-500/[0.04] group-hover:border-rose-500/20",
-    hoverBtnClass: "group-hover:from-rose-500 group-hover:to-pink-600"
+    hoverBgClass: "hover:bg-rose-50/30 hover:border-rose-200/50",
+    hoverTextClass: "group-hover:text-rose-700",
+    hoverIconBgClass: "group-hover:bg-rose-50 group-hover:border-rose-100",
+    hoverBtnClass: "hover:bg-rose-50 hover:text-rose-700 hover:border-rose-200"
   },
   {
     title: "Business Development Executive",
@@ -99,12 +99,12 @@ export const enrichedJobs = [
     isUrgent: false,
     tag: "B2B Sales",
     icon: <Handshake className="w-5 h-5 text-emerald-600" />,
-    glow: "rgba(16, 185, 129, 0.15)",
+    glow: "rgba(16, 185, 129, 0.05)",
     tagClass: "text-emerald-600 bg-emerald-50 border-emerald-100",
-    hoverBgClass: "hover:bg-emerald-500/[0.025] hover:border-emerald-500/20 hover:shadow-[0_20px_40px_rgba(16,185,129,0.06)]",
-    hoverTextClass: "group-hover:text-emerald-600",
-    hoverIconBgClass: "group-hover:bg-emerald-500/[0.04] group-hover:border-emerald-500/20",
-    hoverBtnClass: "group-hover:from-emerald-500 group-hover:to-teal-600"
+    hoverBgClass: "hover:bg-emerald-50/30 hover:border-emerald-200/50",
+    hoverTextClass: "group-hover:text-emerald-700",
+    hoverIconBgClass: "group-hover:bg-emerald-50 group-hover:border-emerald-100",
+    hoverBtnClass: "hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200"
   },
   {
     title: "Software Engineering Intern",
@@ -116,12 +116,12 @@ export const enrichedJobs = [
     isUrgent: false,
     tag: "Internship",
     icon: <GraduationCap className="w-5 h-5 text-amber-500" />,
-    glow: "rgba(245, 158, 11, 0.15)",
+    glow: "rgba(245, 158, 11, 0.05)",
     tagClass: "text-amber-600 bg-amber-50 border-amber-100",
-    hoverBgClass: "hover:bg-amber-500/[0.025] hover:border-amber-500/20 hover:shadow-[0_20px_40px_rgba(245,158,11,0.06)]",
-    hoverTextClass: "group-hover:text-amber-600",
-    hoverIconBgClass: "group-hover:bg-amber-500/[0.04] group-hover:border-amber-500/20",
-    hoverBtnClass: "group-hover:from-amber-500 group-hover:to-orange-600"
+    hoverBgClass: "hover:bg-amber-50/30 hover:border-amber-200/50",
+    hoverTextClass: "group-hover:text-amber-700",
+    hoverIconBgClass: "group-hover:bg-amber-50 group-hover:border-amber-100",
+    hoverBtnClass: "hover:bg-amber-50 hover:text-amber-700 hover:border-amber-200"
   }
 ];
 
@@ -132,34 +132,6 @@ interface JobCardProps {
 }
 
 function JobCard({ job }: JobCardProps) {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  // Smooth spring physics for 3D tilt
-  const springConfig = { damping: 30, stiffness: 200, mass: 0.5 };
-  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [5, -5]), springConfig);
-  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-5, 5]), springConfig);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left - width / 2;
-    const mouseY = e.clientY - rect.top - height / 2;
-
-    x.set(mouseX / width);
-    y.set(mouseY / height);
-
-    // Set CSS custom properties on element style for spotlight tracking
-    e.currentTarget.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
-    e.currentTarget.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
   return (
     <motion.div
       layout
@@ -168,34 +140,18 @@ function JobCard({ job }: JobCardProps) {
       exit={{ opacity: 0, scale: 0.97, y: -25 }}
       viewport={{ once: false, margin: "-100px" }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: "preserve-3d",
-        perspective: 1200,
-      }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className={`group relative flex flex-col lg:flex-row lg:items-center justify-between gap-6 rounded-3xl border border-slate-100 bg-gradient-to-br from-white via-slate-50/50 to-white/95 p-6 md:p-8 backdrop-blur-xl transition-all duration-500 overflow-hidden cursor-pointer shadow-sm hover:shadow-[0_20px_45px_rgba(0,194,255,0.06)] ${job.hoverBgClass}`}
+      className={`group relative flex flex-col lg:flex-row lg:items-center justify-between gap-6 rounded-3xl border border-slate-200 bg-white p-6 md:p-8 transition-all duration-300 overflow-hidden cursor-pointer shadow-sm hover:-translate-y-1 hover:shadow-md ${job.hoverBgClass}`}
     >
       {/* Left blue accent line on hover */}
-      <div className="absolute left-0 top-0 bottom-0 w-[3.5px] bg-blue origin-center scale-y-0 transition-transform duration-300 group-hover:scale-y-100 z-20" />
+      <div className="absolute left-0 top-0 bottom-0 w-[4px] bg-blue origin-center scale-y-0 transition-transform duration-300 group-hover:scale-y-100 z-20" />
 
-      {/* Mouse Following Spotlight Gradient Glow */}
-      <div 
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10"
-        style={{
-          background: `radial-gradient(350px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), ${job.glow}, transparent 80%)`
-        }}
-      />
-
-      {/* Main content elements wrapped with 3D preserve-3d class */}
-      <div className="flex-1 flex flex-col md:flex-row md:items-center justify-between gap-6 z-10 relative pointer-events-none w-full" style={{ transformStyle: "preserve-3d" }}>
+      {/* Main content elements */}
+      <div className="flex-1 flex flex-col md:flex-row md:items-center justify-between gap-6 z-10 relative pointer-events-none w-full">
         
         {/* Left Side: Icon, Tags, and Title */}
-        <div className="flex-1 flex items-start gap-5" style={{ transform: "translateZ(25px)", transformStyle: "preserve-3d" }}>
+        <div className="flex-1 flex items-start gap-5">
           {/* Animated Icon Container */}
-          <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-slate-100 bg-white shadow-sm transition-all duration-500 group-hover:scale-105 ${job.hoverIconBgClass}`}>
+          <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-slate-100 bg-white shadow-sm transition-all duration-300 group-hover:scale-105 ${job.hoverIconBgClass}`}>
             {job.icon}
           </div>
           
@@ -233,20 +189,20 @@ function JobCard({ job }: JobCardProps) {
         </div>
 
         {/* Center: Job Description */}
-        <div className="flex-1 lg:max-w-[38%] xl:max-w-[42%] flex items-center md:border-l md:border-slate-100 md:pl-6" style={{ transform: "translateZ(15px)" }}>
+        <div className="flex-1 lg:max-w-[38%] xl:max-w-[42%] flex items-center md:border-l md:border-slate-100 md:pl-6">
           <p className="text-slate-500 text-[13.5px] leading-relaxed group-hover:text-slate-600 transition-colors duration-300">
             {job.description}
           </p>
         </div>
 
         {/* Right: Apply Now CTA */}
-        <div className="shrink-0 w-full md:w-auto md:pl-4 pointer-events-auto" style={{ transform: "translateZ(30px)" }}>
+        <div className="shrink-0 w-full md:w-auto md:pl-4 pointer-events-auto">
           <Link
             href="#apply"
-            className={`relative block w-full md:w-36 text-center py-3 px-5 rounded-2xl font-montserrat text-xs font-bold uppercase tracking-wider overflow-hidden border border-cyan-500/20 bg-gradient-to-r from-blue/5 to-cyan/5 text-cyan-600 transition-all duration-300 hover:scale-105 group-hover:text-white group-hover:border-transparent group-hover:shadow-[0_0_20px_rgba(0,194,255,0.15)] ${job.hoverBtnClass}`}
+            className={`group/btn relative block w-full md:w-36 text-center py-3 px-5 rounded-2xl font-montserrat text-xs font-bold uppercase tracking-wider overflow-hidden border border-slate-200 bg-slate-50 text-slate-600 transition-all duration-300 hover:scale-105 ${job.hoverBtnClass}`}
           >
             <span className="relative z-10 flex items-center justify-center gap-1.5">
-              Apply Now <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+              Apply Now <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" />
             </span>
           </Link>
         </div>
