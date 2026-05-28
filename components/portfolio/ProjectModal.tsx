@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Calendar, Target, Zap, Users, Globe, ChevronRight } from "lucide-react";
-import Image from "next/image";
 import { Project } from "@/content/projects";
 
 interface ProjectModalProps {
