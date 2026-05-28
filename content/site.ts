@@ -226,34 +226,34 @@ export const values = [
 
 export const timeline = [
   {
-    year: "2021",
-    title: "Company Founded",
+    year: "January 2026",
+    title: "The Inception",
     description:
-      "Leadora Systems was incorporated with a vision to deliver enterprise-grade software solutions to growing businesses across India.",
+      "A group of passionate engineers came together with a shared vision: to build enterprise-grade software solutions with unparalleled engineering quality and transparent delivery.",
   },
   {
-    year: "2022",
-    title: "First Enterprise Client",
+    year: "March 2026",
+    title: "Building the Foundation",
     description:
-      "Delivered our first large-scale Spring Boot microservices project for a financial services client, establishing our enterprise credentials.",
+      "Established our core processes, finalized our technology stack (focused on Cloud, AI, and modern web architectures), and began developing internal accelerators to speed up future client delivery.",
   },
   {
-    year: "2023",
-    title: "Cloud Practice Launch",
+    year: "May 2026",
+    title: "Team Expansion & Pre-Launch",
     description:
-      "Launched dedicated Azure cloud practice and DevOps services, becoming a trusted cloud partner for multiple businesses.",
+      "Scaled our founding team with exceptional talent across frontend, backend, and cloud domains. Secured our first beta enterprise partnership to test our delivery models.",
   },
   {
-    year: "2024",
-    title: "AI & Mobile Expansion",
+    year: "June 2026",
+    title: "Official Company Launch",
     description:
-      "Expanded service portfolio with AI integration capabilities and cross-platform mobile development, growing the team to 20+ engineers.",
+      "Leadora Systems officially launches! Opening our doors to businesses globally, ready to engineer scalable platforms, architect cloud infrastructure, and drive digital transformations.",
   },
   {
-    year: "2025",
-    title: "Next Phase of Growth",
+    year: "Beyond 2026",
+    title: "Scaling the Future",
     description:
-      "Scaling operations, opening new client partnerships across healthcare, retail, and SaaS verticals with an expanded global reach.",
+      "Looking ahead to launching specialized AI integration practices and expanding our global footprint across key verticals like healthcare, fintech, and digital commerce.",
   },
 ];
 
