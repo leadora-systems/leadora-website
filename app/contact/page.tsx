@@ -3,8 +3,7 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { Reveal, RevealGroup } from "@/components/ui/Reveal";
 import { site } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
-import { Linkedin, Twitter, Instagram, Facebook, Clock, ArrowDown } from "lucide-react";
-import { LiveStatusTracker } from "@/components/ui/LiveStatusTracker";
+import { ArrowDown, Clock } from "lucide-react";
 
 export const metadata = pageMetadata(
   "Contact",
@@ -25,7 +24,7 @@ export default function ContactPage() {
       />
       
       {/* Elite Divider with Interactive Pulsing Scroll Arrow */}
-      <div className="relative flex items-center justify-center w-full my-6">
+      <div className="relative flex items-center justify-center w-full my-1">
         <div className="absolute inset-0 flex items-center" aria-hidden="true">
           <div className="w-full border-t border-blue/15"></div>
         </div>
@@ -38,8 +37,8 @@ export default function ContactPage() {
       <section className="section">
         <div className="container">
           <RevealGroup className="contact-layout">
-            <div>
-              <div className="mb-8 overflow-hidden rounded-2xl border border-blue/10 bg-gradient-to-br from-blue/[0.07] via-cyan/[0.02] to-transparent p-5 shadow-sm relative backdrop-blur-sm">
+            <div className="h-full">
+              <div className="mb-0 overflow-hidden rounded-2xl border border-blue/10 bg-gradient-to-br from-blue/[0.07] via-cyan/[0.02] to-transparent p-5 shadow-sm relative backdrop-blur-sm">
                 <div className="absolute -right-6 -bottom-6 h-24 w-24 rounded-full bg-blue/10 blur-xl"></div>
                 <div className="flex items-center gap-4">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue/15 text-blue border border-blue/10">
@@ -124,75 +123,69 @@ export default function ContactPage() {
                     </div>
                   </div>
                 </div>
-                <div className="contact-card">
-                  <div className="text-lg">📍</div>
-                  <div>
-                    <h4 className="mb-1 text-sm font-bold font-montserrat">Address</h4>
-                    <p className="text-sm leading-relaxed text-muted font-sans">
-                      {site.legalName}
-                      <br />
-                      {site.location}
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-4 flex h-[200px] flex-col items-center justify-center gap-2.5 rounded-xl border border-glass-border bg-glass text-sm text-muted font-sans">
-                🗺️ <span>Google Maps — Location</span>
               </div>
             </div>
             <Reveal>
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4 h-full">
                 <ContactForm />
-                <LiveStatusTracker />
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border border-glass-border bg-glass p-5 shadow-xs">
-                  <div>
-                    <h4 className="font-montserrat text-[14px] font-bold text-navy">Follow Our Journey</h4>
-                    <p className="text-[11px] text-muted mt-0.5 leading-normal font-sans">
-                      Get real-time tech insights & company updates.
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    <a
-                      href={site.socials.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex h-9 w-9 items-center justify-center rounded-lg border border-glass-border bg-white text-muted hover:border-blue hover:text-blue hover:shadow-sm transition-all"
-                      title="LinkedIn"
-                    >
-                      <Linkedin className="h-4 w-4" />
-                    </a>
-                    <a
-                      href={site.socials.twitter}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex h-9 w-9 items-center justify-center rounded-lg border border-glass-border bg-white text-muted hover:border-blue hover:text-blue hover:shadow-sm transition-all"
-                      title="Twitter / X"
-                    >
-                      <Twitter className="h-4 w-4" />
-                    </a>
-                    <a
-                      href={site.socials.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex h-9 w-9 items-center justify-center rounded-lg border border-glass-border bg-white text-muted hover:border-pink-500 hover:text-pink-500 hover:shadow-sm transition-all"
-                      title="Instagram"
-                    >
-                      <Instagram className="h-4 w-4" />
-                    </a>
-                    <a
-                      href={site.socials.facebook}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex h-9 w-9 items-center justify-center rounded-lg border border-glass-border bg-white text-muted hover:border-blue hover:text-blue hover:shadow-sm transition-all"
-                      title="Facebook"
-                    >
-                      <Facebook className="h-4 w-4" />
-                    </a>
-                  </div>
-                </div>
               </div>
             </Reveal>
           </RevealGroup>
+        </div>
+      </section>
+
+      {/* Full-bleed divider before map section */}
+      <div className="w-full my-1" aria-hidden="true">
+        <div className="w-full border-t border-blue/15" />
+      </div>
+
+      {/* Separate, full-width map section (not inside container) */}
+      <section className="section">
+        <div className="w-full px-4 sm:px-6 lg:px-10">
+          <div className="mx-auto w-full max-w-5xl">
+            <div className="mb-3 flex items-center justify-between gap-3">
+              <div>
+                <div className="label font-montserrat font-bold uppercase tracking-wider text-xs">
+                  Office Location
+                </div>
+                <div className="text-[13px] text-muted font-sans mt-1">
+                  Tap the map to open Google Maps directions.
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-2xl border border-glass-border bg-white shadow-sm transition-all hover:border-blue/40">
+              <iframe
+                title="Leadora Systems location map"
+                className="h-[420px] w-full"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=Jayabheri%20Silicon%20Towers%2C%20Sreebagh%20Colony%2C%20Hyderabad%2C%20Kothaguda%2C%20Telangana%20500084&output=embed"
+              />
+
+              {/* Full-area click target to open Google Maps */}
+              <a
+                href="https://maps.app.goo.gl/WGUaD9bEAGd4RqfRA"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open address in Google Maps"
+                className="absolute inset-0 z-10"
+              />
+
+              {/* Small info chip like the reference */}
+              <div className="pointer-events-none absolute left-3 top-3 z-20 max-w-[calc(100%-1.5rem)] rounded-lg border border-glass-border bg-white/95 px-3 py-2 shadow-sm backdrop-blur">
+                <div className="font-montserrat text-[12px] font-bold text-navy leading-snug">
+                  Jayabheri Silicon Towers
+                </div>
+                <div className="mt-0.5 text-[11px] text-muted font-sans leading-snug">
+                  Sreebagh Colony, Hyderabad, Kothaguda, Telangana 500084
+                </div>
+                <div className="mt-1 text-[10px] font-montserrat font-bold uppercase tracking-wider text-blue">
+                  Click to open Google Maps
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>

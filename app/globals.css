@@ -191,7 +191,7 @@
     @apply sm:col-span-2;
   }
   .contact-layout {
-    @apply mt-12 grid gap-8 lg:grid-cols-[1fr_1.2fr];
+    @apply mt-12 grid gap-8 lg:grid-cols-[1fr_1.2fr] items-stretch;
   }
   .contact-card {
     @apply flex items-start gap-3.5 rounded-xl border border-glass-border bg-white px-6 py-5 shadow-sm;
