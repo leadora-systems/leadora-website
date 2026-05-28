@@ -16,20 +16,14 @@ export async function POST(request: Request) {
 
     const { name, email, company, service, budget, timeline, message } = parsed.data;
 
-    let enrichedMessage = message;
-    if (budget || timeline) {
-      const qualifiers = [];
-      if (budget) qualifiers.push(`Budget: ${budget}`);
-      if (timeline) qualifiers.push(`Timeline: ${timeline}`);
-      enrichedMessage = `[${qualifiers.join(" | ")}]\n\n${message}`;
-    }
-
     await appendToGoogleSheet("contact", {
       name,
       email,
       company: company ?? "",
       service: service ?? "",
-      message: enrichedMessage,
+      budget: budget ?? "",
+      timeline: timeline ?? "",
+      message,
     });
 
     return NextResponse.json({ success: true });
