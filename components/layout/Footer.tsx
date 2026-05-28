@@ -18,42 +18,45 @@ export function Footer() {
               {site.tagline}. We build scalable software, cloud infrastructure,
               and modern enterprise applications for businesses worldwide.
             </p>
+            <div className="mb-2 text-[11px] font-extrabold uppercase tracking-wider text-muted font-montserrat">
+              Follow us
+            </div>
             <div className="flex items-center gap-3">
               <a
                 href={site.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="flex h-9 w-9 items-center justify-center rounded-lg border border-glass-border bg-white text-muted hover:border-blue hover:text-blue hover:shadow-sm transition-all"
+                className="flex h-10 w-10 items-center justify-center rounded-lg border border-glass-border bg-white text-[#0A66C2] hover:border-[#0A66C2]/40 hover:shadow-sm transition-all"
               >
-                <Linkedin className="h-4 w-4" />
+                <Linkedin className="h-5 w-5" />
               </a>
               <a
                 href={site.socials.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Twitter"
-                className="flex h-9 w-9 items-center justify-center rounded-lg border border-glass-border bg-white text-muted hover:border-blue hover:text-blue hover:shadow-sm transition-all"
+                className="flex h-10 w-10 items-center justify-center rounded-lg border border-glass-border bg-white text-black hover:border-black/20 hover:shadow-sm transition-all"
               >
-                <Twitter className="h-4 w-4" />
+                <Twitter className="h-5 w-5" />
               </a>
               <a
                 href={site.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="flex h-9 w-9 items-center justify-center rounded-lg border border-glass-border bg-white text-muted hover:border-pink-500 hover:text-pink-500 hover:shadow-sm transition-all"
+                className="flex h-10 w-10 items-center justify-center rounded-lg border border-glass-border bg-white text-[#E1306C] hover:border-[#E1306C]/40 hover:shadow-sm transition-all"
               >
-                <Instagram className="h-4 w-4" />
+                <Instagram className="h-5 w-5" />
               </a>
               <a
                 href={site.socials.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="flex h-9 w-9 items-center justify-center rounded-lg border border-glass-border bg-white text-muted hover:border-blue hover:text-blue hover:shadow-sm transition-all"
+                className="flex h-10 w-10 items-center justify-center rounded-lg border border-glass-border bg-white text-[#1877F2] hover:border-[#1877F2]/40 hover:shadow-sm transition-all"
               >
-                <Facebook className="h-4 w-4" />
+                <Facebook className="h-5 w-5" />
               </a>
             </div>
           </div>
