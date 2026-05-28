@@ -5,6 +5,7 @@ import { site } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
 import { Linkedin, Twitter, Instagram, Facebook, Clock, ArrowDown } from "lucide-react";
 import { LiveStatusTracker } from "@/components/ui/LiveStatusTracker";
+import { Suspense } from "react";
 
 export const metadata = pageMetadata(
   "Contact",
@@ -142,7 +143,13 @@ export default function ContactPage() {
             </div>
             <Reveal>
               <div className="flex flex-col gap-4">
-                <ContactForm />
+                <Suspense fallback={
+                  <div className="flex h-[400px] items-center justify-center rounded-2xl border border-glass-border bg-white p-8 shadow-sm">
+                    <span className="text-sm font-bold text-muted animate-pulse">Loading Contact Form...</span>
+                  </div>
+                }>
+                  <ContactForm />
+                </Suspense>
                 <LiveStatusTracker />
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border border-glass-border bg-glass p-5 shadow-xs">
                   <div>

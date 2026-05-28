@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useMotionValue } from "framer-motion";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, ArrowRight, Layers } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight, Layers, Cpu, Compass, Play, Pause, Keyboard } from "lucide-react";
 import { Project, projects } from "@/content/projects";
 
 interface HorizontalShowcaseProps {
@@ -12,7 +12,9 @@ interface HorizontalShowcaseProps {
 
 export function HorizontalShowcase({ onSelectProject }: HorizontalShowcaseProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [windowWidth, setWindowWidth] = useState(1024); // Hydration safe default
+  const [showKeyboardTooltip, setShowKeyboardTooltip] = useState(false);
   const dragX = useMotionValue(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -26,13 +28,46 @@ export function HorizontalShowcase({ onSelectProject }: HorizontalShowcaseProps)
     }
   }, []);
 
-  // Auto-play feature (continuous)
+  // Keyboard Navigation handler
   useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        handleNext();
+        triggerKeyboardFeedback();
+      } else if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        handlePrev();
+        triggerKeyboardFeedback();
+      } else if (e.key === " ") {
+        // Spacebar toggles autoplay if focused on the widget
+        const activeEl = document.activeElement;
+        if (containerRef.current?.contains(activeEl)) {
+          e.preventDefault();
+          setIsPlaying((p) => !p);
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  // Show a little floating tutorial tooltip on first focus
+  const triggerKeyboardFeedback = () => {
+    setShowKeyboardTooltip(true);
+    const t = setTimeout(() => setShowKeyboardTooltip(false), 2500);
+    return () => clearTimeout(t);
+  };
+
+  // Auto-play feature (toggled by state)
+  useEffect(() => {
+    if (!isPlaying) return;
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % projects.length);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(interval);
-  }, []);
+  }, [isPlaying]);
 
   const handleNext = () => {
     setActiveIndex((prev) => (prev + 1) % projects.length);
@@ -65,13 +100,15 @@ export function HorizontalShowcase({ onSelectProject }: HorizontalShowcaseProps)
 
   // Get background glow colors depending on active project
   const getAmbientBg = (index: number) => {
-    switch (index) {
-      case 0: return "from-blue/10 via-cyan/5 to-transparent";
-      case 1: return "from-purple-500/10 via-blue/5 to-transparent";
-      case 2: return "from-blue/15 via-cyan/5 to-transparent";
-      case 3: return "from-orange/10 via-blue/5 to-transparent";
-      default: return "from-blue/10 via-cyan/5 to-transparent";
-    }
+    const glows = [
+      "from-blue/15 via-cyan/5 to-transparent",
+      "from-purple-500/15 via-blue/5 to-transparent",
+      "from-blue/20 via-cyan/5 to-transparent",
+      "from-orange-500/15 via-blue/5 to-transparent",
+      "from-emerald-500/15 via-teal-500/5 to-transparent",
+      "from-pink-500/15 via-purple-500/5 to-transparent",
+    ];
+    return glows[index % glows.length];
   };
 
   const isMobile = windowWidth < 768;
@@ -82,13 +119,30 @@ export function HorizontalShowcase({ onSelectProject }: HorizontalShowcaseProps)
 
   return (
     <div 
-      className="relative w-full py-16 overflow-hidden select-none"
+      className="relative w-full py-16 overflow-hidden select-none focus:outline-none"
       ref={containerRef}
+      tabIndex={0} // Allows keyboard focus on the slider component
+      aria-label="Interactive Case Studies Slider. Use Arrow keys to navigate."
     >
       {/* Dynamic Ambient Background Glow */}
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center transition-all duration-1000 ease-in-out">
-        <div className={`absolute w-[300px] md:w-[600px] h-[300px] md:h-[600px] rounded-full blur-[80px] md:blur-[120px] bg-gradient-to-br ${getAmbientBg(activeIndex)} opacity-70`} />
+        <div className={`absolute w-[320px] md:w-[650px] h-[320px] md:h-[650px] rounded-full blur-[80px] md:blur-[120px] bg-gradient-to-br ${getAmbientBg(activeIndex)} opacity-75`} />
       </div>
+
+      {/* Keyboard Controls Dynamic Indicator Tooltip */}
+      <AnimatePresence>
+        {showKeyboardTooltip && (
+          <motion.div
+            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            className="absolute top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1.5 rounded-full bg-navy/95 border border-white/10 px-3.5 py-1.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-xl backdrop-blur-md"
+          >
+            <Keyboard size={12} className="text-blue" />
+            <span>Keyboard Control Active</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Main Showcase Track */}
       <div className="relative z-10 flex flex-col items-center">
@@ -144,27 +198,29 @@ export function HorizontalShowcase({ onSelectProject }: HorizontalShowcaseProps)
                       stiffness: 240,
                       damping: 26,
                     }}
-                    className={`absolute w-full max-w-[92%] md:max-w-4xl h-auto min-h-[400px] md:h-[450px] rounded-3xl border border-glass-border bg-white/90 backdrop-blur-xl p-1 shadow-xl transition-all duration-300 ${
+                    className={`absolute w-full max-w-[92%] md:max-w-4xl h-auto min-h-[400px] md:h-[450px] rounded-3xl border border-white/20 bg-white/40 backdrop-blur-xl p-1 shadow-[0_12px_40px_rgba(0,0,0,0.03)] hover:bg-white/50 transition-all duration-300 ${
                       isActive 
-                        ? "cursor-grab active:cursor-grabbing border-blue/20 shadow-[0_32px_80px_rgba(30,144,255,0.18)] ring-1 ring-blue/5" 
+                        ? "cursor-grab active:cursor-grabbing border-blue/30 shadow-[0_32px_80px_rgba(30,144,255,0.12)] ring-1 ring-white/10" 
                         : "pointer-events-none md:pointer-events-auto cursor-pointer border-transparent shadow-md hover:scale-95"
                     }`}
                     onClick={() => {
                       if (!isActive) {
                         setActiveIndex(index);
+                      } else {
+                        onSelectProject(project);
                       }
                     }}
                   >
                     {/* Inner Content Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-12 h-full w-full rounded-2xl overflow-hidden">
+                    <div className="grid grid-cols-1 md:grid-cols-12 h-full w-full rounded-2xl overflow-hidden bg-white/20 backdrop-blur-md">
                       
                       {/* Left Column: Project Details */}
-                      <div className="col-span-1 md:col-span-7 p-6 md:p-8 flex flex-col justify-between h-full bg-gradient-to-br from-white/40 via-white/20 to-transparent">
+                      <div className="col-span-1 md:col-span-7 p-6 md:p-8 flex flex-col justify-between h-full bg-gradient-to-br from-white/30 via-white/10 to-transparent">
                         <div>
                           {/* Card Header Info */}
                           <div className="flex items-center justify-between mb-4">
                             <div className="flex items-center gap-3">
-                              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-lightgray shadow-inner">
+                              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-lightgray shadow-inner border border-glass-border/40">
                                 {project.clientLogo ? (
                                   <Image src={project.clientLogo} alt={project.clientName} width={24} height={24} className="h-6 w-6 rounded-lg object-cover" />
                                 ) : (
@@ -172,14 +228,14 @@ export function HorizontalShowcase({ onSelectProject }: HorizontalShowcaseProps)
                                 )}
                               </div>
                               <div>
-                                <h4 className="text-[10px] font-bold uppercase tracking-widest text-muted">{project.clientName}</h4>
+                                <h4 className="text-[10px] font-bold uppercase tracking-widest text-muted font-sans">{project.clientName}</h4>
                                 <div className="flex items-center gap-1.5 mt-0.5">
-                                  <span className="text-[11px] font-medium text-navy/60">{project.industry}</span>
+                                  <span className="text-[11px] font-medium text-navy/60 font-sans">{project.industry}</span>
                                 </div>
                               </div>
                             </div>
 
-                            <span className={`rounded-full border px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${getStatusColor(project.status)}`}>
+                            <span className={`rounded-full border px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider font-montserrat ${getStatusColor(project.status)}`}>
                               {project.status}
                             </span>
                           </div>
@@ -188,7 +244,7 @@ export function HorizontalShowcase({ onSelectProject }: HorizontalShowcaseProps)
                           <h3 className="font-montserrat text-xl md:text-2xl lg:text-3xl font-extrabold text-navy leading-tight mb-3">
                             {project.title}
                           </h3>
-                          <p className="text-xs md:text-sm lg:text-base leading-relaxed text-navy/80 mb-5 line-clamp-3 md:line-clamp-4">
+                          <p className="text-xs md:text-sm lg:text-base leading-relaxed text-navy/80 mb-5 line-clamp-3 md:line-clamp-4 font-sans">
                             {project.description}
                           </p>
                         </div>
@@ -198,12 +254,12 @@ export function HorizontalShowcase({ onSelectProject }: HorizontalShowcaseProps)
                           {/* Tech Stack Tags */}
                           <div className="flex flex-wrap gap-1.5 mb-6">
                             {project.technologies.slice(0, 4).map((tech) => (
-                              <span key={tech} className="rounded-lg bg-lightgray/80 border border-glass-border px-2.5 py-1 text-[11px] font-semibold text-navy/70">
+                              <span key={tech} className="rounded-lg bg-lightgray/80 border border-glass-border px-2.5 py-1 text-[11px] font-semibold text-navy/70 font-sans">
                                 {tech}
                               </span>
                             ))}
                             {project.technologies.length > 4 && (
-                              <span className="text-[10px] font-bold text-blue/70 self-center ml-1">+{project.technologies.length - 4} more</span>
+                              <span className="text-[10px] font-bold text-blue/70 self-center ml-1 font-sans">+{project.technologies.length - 4} more</span>
                             )}
                           </div>
 
@@ -215,7 +271,7 @@ export function HorizontalShowcase({ onSelectProject }: HorizontalShowcaseProps)
                                 e.stopPropagation();
                                 onSelectProject(project);
                               }}
-                              className="inline-flex items-center gap-2 rounded-xl bg-grad text-white px-5 py-3 text-xs font-bold shadow-lg shadow-blue/20 transition-all hover:opacity-90"
+                              className="inline-flex items-center gap-2 rounded-xl bg-grad text-white px-5 py-3.5 text-xs font-bold shadow-lg shadow-blue/20 transition-all hover:opacity-90 font-montserrat"
                             >
                               Explore Success Story <ArrowRight size={14} />
                             </motion.button>
@@ -256,22 +312,24 @@ export function HorizontalShowcase({ onSelectProject }: HorizontalShowcaseProps)
         {/* Storytelling Progress Indicator & Controls */}
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between w-full max-w-5xl px-6 gap-6">
           
-          {/* Animated Project Counter: e.g., 01 / 04 */}
-          <div className="flex items-center gap-4">
-            <span className="font-montserrat text-lg font-bold text-navy">
-              {String(activeIndex + 1).padStart(2, "0")}
-            </span>
-            <div className="w-24 h-1 bg-blue/10 rounded-full overflow-hidden relative">
-              <motion.div 
-                className="absolute top-0 bottom-0 left-0 bg-grad"
-                initial={false}
-                animate={{ width: `${((activeIndex + 1) / projects.length) * 100}%` }}
-                transition={{ type: "spring", stiffness: 100, damping: 15 }}
-              />
+          {/* Animated Project Counter */}
+          <div className="flex items-center gap-5">
+            <div className="flex items-center gap-3">
+              <span className="font-montserrat text-lg font-bold text-navy">
+                {String(activeIndex + 1).padStart(2, "0")}
+              </span>
+              <div className="w-24 h-1 bg-blue/10 rounded-full overflow-hidden relative">
+                <motion.div 
+                  className="absolute top-0 bottom-0 left-0 bg-grad"
+                  initial={false}
+                  animate={{ width: `${((activeIndex + 1) / projects.length) * 100}%` }}
+                  transition={{ type: "spring", stiffness: 100, damping: 15 }}
+                />
+              </div>
+              <span className="font-montserrat text-xs font-bold text-muted">
+                {String(projects.length).padStart(2, "0")}
+              </span>
             </div>
-            <span className="font-montserrat text-xs font-bold text-muted">
-              {String(projects.length).padStart(2, "0")}
-            </span>
           </div>
 
           {/* Navigation Arrows & Clickable Pagination Dots */}
@@ -281,7 +339,10 @@ export function HorizontalShowcase({ onSelectProject }: HorizontalShowcaseProps)
               {projects.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setActiveIndex(index)}
+                  onClick={() => {
+                    setActiveIndex(index);
+                    setIsPlaying(false); // Pause auto-rotation when user manually paginates
+                  }}
                   className={`h-2 rounded-full transition-all duration-300 ${
                     index === activeIndex ? "w-6 bg-blue" : "w-2 bg-blue/20 hover:bg-blue/40"
                   }`}
@@ -293,14 +354,20 @@ export function HorizontalShowcase({ onSelectProject }: HorizontalShowcaseProps)
             {/* Navigation Buttons */}
             <div className="flex items-center gap-2">
               <button
-                onClick={handlePrev}
+                onClick={() => {
+                  handlePrev();
+                  setIsPlaying(false);
+                }}
                 className="flex h-11 w-11 items-center justify-center rounded-full bg-white border border-glass-border text-navy transition shadow-sm hover:bg-lightgray hover:border-blue/20"
                 aria-label="Previous Project"
               >
                 <ChevronLeft size={18} />
               </button>
               <button
-                onClick={handleNext}
+                onClick={() => {
+                  handleNext();
+                  setIsPlaying(false);
+                }}
                 className="flex h-11 w-11 items-center justify-center rounded-full bg-white border border-glass-border text-navy transition shadow-sm hover:bg-lightgray hover:border-blue/20"
                 aria-label="Next Project"
               >

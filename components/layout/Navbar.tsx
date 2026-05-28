@@ -50,19 +50,21 @@ export function Navbar() {
           </Link>
 
           {/* Centered Navigation */}
-          <ul className="hidden items-center gap-4 lg:gap-6 list-none md:flex">
+          <ul className="hidden items-center gap-3 lg:gap-4 list-none md:flex">
             {links.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`group relative flex items-center gap-1.5 px-2 py-2 text-[14px] font-bold no-underline transition-colors ${
+                  className={`group relative flex items-center gap-1 px-3.5 py-1.5 text-[12px] font-extrabold uppercase tracking-wider no-underline transition-all rounded-xl border ${
                     pathname === link.href
-                      ? "text-white"
-                      : "text-gray-300 hover:text-white"
+                      ? "bg-white/15 border-white/20 text-white shadow-[0_4px_12px_rgba(255,255,255,0.05)] backdrop-blur-md"
+                      : "border-transparent text-gray-300 hover:text-white hover:bg-white/5"
                   }`}
                 >
                   {link.label}
-                  <span className="text-gray-500 transition-colors group-hover:text-white text-[10px]">▼</span>
+                  <span className={`transition-colors text-[8px] ${
+                    pathname === link.href ? "text-blue" : "text-gray-500 group-hover:text-white"
+                  }`}>▼</span>
                 </Link>
               </li>
             ))}
