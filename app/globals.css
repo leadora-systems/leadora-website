@@ -42,7 +42,9 @@
     @apply bg-grad bg-clip-text text-transparent;
   }
   .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-lg border-0 bg-grad px-7 py-3.5 text-sm font-semibold text-white no-underline transition hover:-translate-y-px hover:shadow-lg hover:shadow-blue/20 hover:opacity-90;
+    @apply inline-flex items-center gap-2 rounded-xl border-0 bg-grad px-7 py-3.5 text-sm font-semibold text-white no-underline
+           transition-all duration-300
+           hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue/25 hover:brightness-110;
   }
   .btn-outline {
     @apply inline-flex items-center gap-2 rounded-lg border border-glass-border bg-white px-7 py-3 text-sm font-semibold text-navy no-underline transition hover:-translate-y-px hover:border-blue hover:shadow-sm;
@@ -60,7 +62,8 @@
     @apply mb-[18px] flex h-12 w-12 items-center justify-center rounded-xl border border-blue/10 bg-gradient-to-br from-blue/10 to-cyan/5;
   }
   .tag {
-    @apply rounded-full border border-blue/10 bg-blue/5 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-blue;
+    @apply rounded-full border border-blue/15 bg-blue/[0.06] px-3 py-1 text-[11px] font-semibold tracking-wide text-blue
+           transition-colors duration-200 hover:bg-blue/10 hover:border-blue/25;
   }
   .page-header {
     @apply relative overflow-hidden px-0 pb-[72px] pt-[140px] text-center;
@@ -81,7 +84,7 @@
     @apply relative z-[1] mt-3 text-[17px] text-muted;
   }
   .cta-banner {
-    @apply relative overflow-hidden rounded-3xl border border-blue/10 bg-gradient-to-br from-[#F7F9FC] to-white px-12 py-16 text-center shadow-lg shadow-blue/5;
+    @apply relative overflow-hidden rounded-3xl border border-blue/10 bg-gradient-to-br from-[#F0F6FF] to-white px-12 py-16 text-center shadow-lg shadow-blue/5;
   }
   .cta-banner h2 {
     @apply mb-3.5 text-[clamp(24px,3.5vw,38px)] font-extrabold text-navy;
@@ -96,16 +99,27 @@
     @apply mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3;
   }
   .services-grid-lg {
-    @apply mt-12 grid gap-5 md:grid-cols-2;
+    @apply mt-12 grid gap-6 md:grid-cols-2;
   }
   .service-card {
-    @apply flex flex-col rounded-2xl border border-glass-border bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-blue/30 hover:shadow-[0_16px_48px_rgba(30,144,255,0.1)];
+    @apply relative flex flex-col rounded-2xl border border-glass-border bg-white p-8 shadow-sm overflow-hidden
+           transition-all duration-300 ease-out
+           hover:-translate-y-1.5 hover:border-blue/25
+           hover:shadow-[0_20px_56px_rgba(30,144,255,0.11)];
+  }
+  .service-card::before {
+    content: "";
+    @apply absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-blue to-cyan
+           scale-y-0 origin-bottom transition-transform duration-300 ease-out rounded-l-2xl;
+  }
+  .service-card:hover::before {
+    @apply scale-y-100;
   }
   .service-card h3 {
-    @apply mb-3 text-lg font-bold text-navy;
+    @apply mb-3 text-xl font-bold text-navy tracking-tight;
   }
   .service-card p {
-    @apply flex-1 text-sm leading-relaxed text-muted;
+    @apply flex-1 text-[14px] leading-relaxed text-muted;
   }
   .tech-grid {
     @apply mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5;
@@ -360,6 +374,40 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradientShift 3s linear infinite;
+}
+
+/* Services hero: slow shimmer/shine on the gradient heading word */
+@keyframes servicesShine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes shine {
+  100% {
+    transform: translateX(300%) skewX(12deg);
+  }
+}
+
+.services-hero-shine {
+  background: linear-gradient(
+    100deg,
+    #1e90ff 0%,
+    #00c2ff 30%,
+    #a8d8ff 48%,
+    #ffffff 52%,
+    #a8d8ff 56%,
+    #00c2ff 70%,
+    #1e90ff 100%
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: servicesShine 5s linear infinite;
 }
 
 /* Custom CSS keyframe spin definition */

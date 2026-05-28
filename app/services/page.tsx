@@ -1,8 +1,12 @@
 import Link from "next/link";
-import { CtaBanner } from "@/components/ui/CtaBanner";
-import { PageHeader } from "@/components/ui/PageHeader";
-import { Reveal, RevealGroup } from "@/components/ui/Reveal";
-import { services } from "@/content/site";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { Reveal } from "@/components/ui/Reveal";
+import { ServicesHero } from "@/components/services/ServicesHero";
+import { ServicesCarousel } from "@/components/services/ServicesCarousel";
+import { ServicesWhyCards } from "@/components/services/ServicesWhyCards";
+import { Services3DHub } from "@/components/services/Services3DHub";
+import { ServicesFaq } from "@/components/services/ServicesFaq";
+import { ServicesCta } from "@/components/services/ServicesCta";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata(
@@ -13,58 +17,75 @@ export const metadata = pageMetadata(
 export default function ServicesPage() {
   return (
     <>
-      <PageHeader
-        label="What We Build"
-        title={
-          <>
-            Our <span className="grad-text">Services</span>
-          </>
-        }
-        description="Comprehensive technology services tailored to your business objectives."
-      />
+      <ServicesHero />
       <div className="divider" />
 
-      <section className="section">
-        <div className="container">
-          <RevealGroup className="services-grid-lg">
-            {services.map((s) => (
-              <div key={s.slug} className="service-card">
-                <h3>{s.title}</h3>
-                <p>{s.description}</p>
-                <div className="my-4 flex flex-wrap gap-1.5">
-                  {s.tags.map((t) => (
-                    <span key={t} className="tag">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <Link
-                  href="/contact"
-                  className="btn-primary mt-auto text-xs"
-                  style={{ padding: "9px 18px" }}
-                >
-                  Start a Project →
-                </Link>
-              </div>
-            ))}
-          </RevealGroup>
-        </div>
+      {/* ── Solutions Carousel ── */}
+      <section className="section pb-0">
+        <Reveal>
+          <div className="container">
+            <SectionHeader
+              label="What We Deliver"
+              title={
+                <>
+                  Solutions We <span className="grad-text">Deliver</span>
+                </>
+              }
+              subtitle="End-to-end technology services engineered for growth, performance, and long-term business impact."
+            />
+          </div>
+        </Reveal>
+        <ServicesCarousel />
       </section>
 
       <div className="divider" />
 
+      {/* ── Why Choose Us ── */}
       <section className="section">
         <div className="container">
           <Reveal>
-            <CtaBanner
-              label=""
-              title="Have a Project in Mind?"
-              description="Let's discuss how we can help you build something remarkable. Schedule a free 30-minute discovery call."
-              primaryLabel="Book a Free Consultation"
+            <SectionHeader
+              label="Why Leadora"
+              title={
+                <>
+                  Built for <span className="grad-text">Results</span>
+                </>
+              }
+              subtitle="Six reasons why fast-growing companies trust Leadora Systems to deliver technology that drives real business outcomes."
+              centered
             />
           </Reveal>
+          <ServicesWhyCards />
         </div>
       </section>
+
+      <Services3DHub />
+
+      <div className="divider" />
+
+      {/* ── FAQ ── */}
+      <section className="section overflow-hidden relative">
+        <div className="container">
+          <Reveal>
+            <SectionHeader
+              label="FAQ Blueprint"
+              title={
+                <>
+                  Common <span className="grad-text">Questions</span>
+                </>
+              }
+              subtitle="Everything you need to know before starting your project with us."
+              centered
+            />
+          </Reveal>
+          <ServicesFaq />
+        </div>
+      </section>
+
+      <div className="divider" />
+
+      {/* ── Immersive Solutions CTA ── */}
+      <ServicesCta />
     </>
   );
 }
