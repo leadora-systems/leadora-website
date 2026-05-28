@@ -96,13 +96,38 @@ export function CareersForm() {
   const onSubmit = async (data: CareersFormData) => {
     setSubmitting(true);
     try {
+      if (!resumeFile) {
+        showToast("⚠️ Please upload your resume (PDF/DOC/DOCX, max 5MB).");
+        return;
+      }
+
+      const allowedTypes = new Set([
+        "application/pdf",
+        "application/msword",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      ]);
+      const maxBytes = 5 * 1024 * 1024;
+
+      if (!allowedTypes.has(resumeFile.type)) {
+        showToast("⚠️ Please upload only PDF or Word documents (.doc/.docx)");
+        return;
+      }
+      if (resumeFile.size > maxBytes) {
+        showToast("⚠️ Resume must be 5MB or smaller.");
+        return;
+      }
+
+      const form = new FormData();
+      form.set("name", data.name);
+      form.set("email", data.email);
+      if (data.phone) form.set("phone", data.phone);
+      form.set("position", data.position);
+      if (data.message) form.set("message", data.message);
+      form.set("resume", resumeFile, resumeFile.name);
+
       const res = await fetch("/api/careers", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...data,
-          resumeName: resumeFile ? resumeFile.name : undefined,
-        }),
+        body: form,
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error ?? "Failed to submit");
