@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useMotionValue } from "framer-motion";
-import { ChevronLeft, ChevronRight, ArrowRight, Layers } from "lucide-react";
 import Image from "next/image";
+import { ChevronLeft, ChevronRight, ArrowRight, Layers } from "lucide-react";
 import { Project, projects } from "@/content/projects";
 
 interface HorizontalShowcaseProps {
@@ -227,7 +227,7 @@ export function HorizontalShowcase({ onSelectProject }: HorizontalShowcaseProps)
                       <div className="col-span-1 md:col-span-5 relative h-48 md:h-full overflow-hidden border-t md:border-t-0 md:border-l border-glass-border">
                         <Image 
                           src={project.mainImage} 
-                          alt={project.title} 
+                          alt={project.title}
                           fill
                           className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1500ms] ease-out hover:scale-105"
                         />
