@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Calendar, Target, Zap, Users, Globe, ChevronRight } from "lucide-react";
 import { Project } from "@/content/projects";
-import Image from "next/image";
 
 interface ProjectModalProps {
   project: Project | null;
@@ -59,7 +59,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                   <div>
                     <div className="mb-3 flex items-center gap-3">
                       <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white shadow-lg">
-                        <span className="font-syne text-lg font-bold text-blue">{project.clientName.charAt(0)}</span>
+                        <span className="font-montserrat text-lg font-bold text-blue">{project.clientName.charAt(0)}</span>
                       </div>
                       <div>
                         <h4 className="text-xs font-bold uppercase tracking-widest text-blue">{project.clientName}</h4>
@@ -70,7 +70,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                         </div>
                       </div>
                     </div>
-                    <h2 className="font-syne text-3xl font-extrabold text-navy md:text-4xl">
+                    <h2 className="font-montserrat text-3xl font-extrabold text-navy md:text-4xl">
                       {project.title}
                     </h2>
                   </div>
@@ -93,7 +93,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               {/* Left Column: Content */}
               <div className="space-y-10">
                 <section>
-                  <h3 className="mb-4 flex items-center gap-2 font-syne text-xl font-bold text-navy">
+                  <h3 className="mb-4 flex items-center gap-2 font-montserrat text-xl font-bold text-navy">
                     <Target className="text-blue" size={20} /> Overview
                   </h3>
                   <p className="text-[15px] leading-relaxed text-navy/80">
@@ -102,7 +102,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 </section>
 
                 <section>
-                  <h3 className="mb-4 flex items-center gap-2 font-syne text-xl font-bold text-navy">
+                  <h3 className="mb-4 flex items-center gap-2 font-montserrat text-xl font-bold text-navy">
                     <Zap className="text-blue" size={20} /> Key Features
                   </h3>
                   <div className="grid gap-3 sm:grid-cols-2">
@@ -117,11 +117,11 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
                 <div className="grid gap-8 sm:grid-cols-2">
                   <section>
-                    <h3 className="mb-3 font-syne text-lg font-bold text-navy">The Challenge</h3>
+                    <h3 className="mb-3 font-montserrat text-lg font-bold text-navy">The Challenge</h3>
                     <p className="text-sm leading-relaxed text-navy/70">{project.challenges}</p>
                   </section>
                   <section>
-                    <h3 className="mb-3 font-syne text-lg font-bold text-navy">Business Impact</h3>
+                    <h3 className="mb-3 font-montserrat text-lg font-bold text-navy">Business Impact</h3>
                     <p className="text-sm leading-relaxed text-navy/70">{project.impact}</p>
                   </section>
                 </div>

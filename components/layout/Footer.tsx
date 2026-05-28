@@ -10,7 +10,7 @@ export function Footer() {
           <div>
             <Link href="/" className="mb-3.5 inline-flex items-center gap-2.5 no-underline">
               <div className="logo-mark">L</div>
-              <span className="font-syne text-xl font-extrabold text-navy">
+              <span className="font-montserrat text-xl font-extrabold text-navy">
                 LEADORA <span className="text-blue">SYSTEMS</span>
               </span>
             </Link>
@@ -59,13 +59,13 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-4 font-syne text-[15px] font-bold">Quick Links</h4>
+            <h4 className="mb-4 font-montserrat text-[15px] font-bold">Quick Links</h4>
             <ul className="list-none">
               {[
                 ["/", "Home"],
-                ["/about", "About Us"],
-                ["/services", "Services"],
-                ["/portfolio", "Portfolio"],
+                ["/about", "Expertise"],
+                ["/services", "Solutions"],
+                ["/portfolio", "Case Studies"],
                 ["/careers", "Careers"],
                 ["/contact", "Contact"],
               ].map(([href, label]) => (
@@ -82,7 +82,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-4 font-syne text-[15px] font-bold">Services</h4>
+            <h4 className="mb-4 font-montserrat text-[15px] font-bold">Services</h4>
             <ul className="list-none">
               {[
                 "Web Development",
@@ -105,7 +105,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-4 font-syne text-[15px] font-bold">Contact</h4>
+            <h4 className="mb-4 font-montserrat text-[15px] font-bold">Contact</h4>
             <ul className="list-none">
               <li className="mb-2.5">
                 <a

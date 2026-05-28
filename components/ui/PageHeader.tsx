@@ -3,9 +3,9 @@ export function PageHeader({
   title,
   description,
 }: {
-  label: string;
+  label: React.ReactNode;
   title: React.ReactNode;
-  description: string;
+  description: React.ReactNode;
 }) {
   return (
     <div className="page-header">

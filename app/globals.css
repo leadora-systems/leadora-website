@@ -17,7 +17,8 @@
   h3,
   h4,
   h5 {
-    @apply font-syne text-navy;
+    font-family: var(--font-montserrat), sans-serif;
+    @apply text-navy;
   }
 }
 
@@ -137,7 +138,8 @@
     @apply rounded-xl border border-glass-border bg-white p-6 text-center shadow-sm;
   }
   .counter-num {
-    @apply font-syne text-3xl font-extrabold grad-text;
+    font-family: var(--font-montserrat), sans-serif;
+    @apply text-3xl font-extrabold grad-text;
   }
   .values-grid {
     @apply mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4;
@@ -198,7 +200,8 @@
     @apply mb-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr];
   }
   .logo-mark {
-    @apply flex h-9 w-9 items-center justify-center rounded-[9px] bg-grad font-syne text-base font-extrabold text-white;
+    font-family: var(--font-montserrat), sans-serif;
+    @apply flex h-9 w-9 items-center justify-center rounded-[9px] bg-grad text-base font-extrabold text-white;
     animation: logoPulse 3s ease infinite;
   }
   .reveal {
@@ -316,3 +319,11 @@
   -webkit-text-fill-color: transparent;
   animation: gradientShift 3s linear infinite;
 }
+
+/* Custom CSS keyframe spin definition */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+

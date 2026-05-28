@@ -170,7 +170,7 @@ export default function AboutPage() {
                   <div className="tl-year text-[11px] font-bold tracking-widest text-blue">
                     {item.year}
                   </div>
-                  <div className="tl-title font-syne text-base font-bold">
+                  <div className="tl-title font-montserrat text-base font-bold">
                     {item.title}
                   </div>
                   <div className="tl-desc text-sm leading-relaxed text-muted">
