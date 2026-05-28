@@ -21,11 +21,10 @@ const config: Config = {
         "glass-border": "rgba(0, 0, 0, 0.08)",
       },
       fontFamily: {
-        syne: ["var(--font-syne)", "sans-serif"],
+        montserrat: ["var(--font-montserrat)", "sans-serif"],
         sans: ["var(--font-inter)", "sans-serif"],
         orbitron: ["var(--font-orbitron)", "sans-serif"],
         spaceGrotesk: ["var(--font-space-grotesk)", "sans-serif"],
-        montserrat: ["var(--font-montserrat)", "sans-serif"],
       },
       backgroundImage: {
         grad: "linear-gradient(135deg, #1E90FF, #00C2FF)",

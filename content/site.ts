@@ -133,6 +133,14 @@ export const technologies = [
   { icon: "🐳", name: "Docker" },
   { icon: "📨", name: "Kafka" },
   { icon: "🔴", name: "Redis" },
+  { icon: "🐍", name: "Python" },
+  { icon: "🔷", name: "TypeScript" },
+  { icon: "🐘", name: "PostgreSQL" },
+  { icon: "🌩️", name: "AWS" },
+  { icon: "☸️", name: "Kubernetes" },
+  { icon: "🛠️", name: "Terraform" },
+  { icon: "🧠", name: "TensorFlow" },
+  { icon: "📈", name: "PowerBI" },
 ];
 
 export const industries = [
