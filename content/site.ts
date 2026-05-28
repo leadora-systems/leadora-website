@@ -6,7 +6,13 @@ export const site = {
   salesEmail: "sales@leadorasystems.com",
   phone: "+91 XXXXX XXXXX",
   location: "India",
-  hours: "Mon–Fri: 9:00 AM – 6:00 PM IST",
+  hours: "Mon–Fri: 10:00 AM – 6:00 PM IST",
+  socials: {
+    linkedin: "https://linkedin.com/company/leadora-systems",
+    twitter: "https://twitter.com/leadorasystems",
+    instagram: "https://instagram.com/leadorasystems",
+    facebook: "https://facebook.com/leadorasystems",
+  },
 };
 
 export const heroPhrases = [
@@ -318,9 +324,40 @@ export const jobTitles = jobs.map((j) => j.title);
 export const serviceOptions = [
   "Web Development",
   "Mobile App Development",
-  "Cloud & Azure",
-  "Spring Boot / Java",
-  "AI Integration",
-  "Digital Marketing",
-  "Other",
+  "Cloud & Azure Solutions",
+  "Spring Boot / Java Development",
+  "AI Integration & Consulting",
+  "Digital Marketing 360",
+  "Search Engine Optimization (SEO)",
+  "Social Media Marketing & Management",
+  "Pay-Per-Click (PPC) Advertising",
+  "Content Strategy & Copywriting",
+  "UI/UX Design",
+  "Cybersecurity & IT Audit",
+  "SaaS & Product Engineering",
+  "Other IT Solutions",
 ];
+
+export const budgetOptionsUSD = [
+  "Under $5,000",
+  "$5,000 - $15,000",
+  "$15,000 - $35,000",
+  "$35,000 - $75,000",
+  "$75,000+",
+];
+
+export const budgetOptionsINR = [
+  "Under ₹4,00,000",
+  "₹4,00,000 - ₹12,00,000",
+  "₹12,00,000 - ₹30,00,000",
+  "₹30,00,000 - ₹60,00,000",
+  "₹60,00,000+",
+];
+
+export const timelineOptions = [
+  "Immediate (Within 1 month)",
+  "1 to 3 Months",
+  "3 to 6 Months",
+  "Just exploring / Planning",
+];
+

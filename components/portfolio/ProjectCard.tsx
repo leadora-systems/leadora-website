@@ -66,6 +66,7 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
             src={project.mainImage} 
             alt={project.title} 
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover transition-transform duration-500 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />

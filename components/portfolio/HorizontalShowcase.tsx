@@ -227,8 +227,9 @@ export function HorizontalShowcase({ onSelectProject }: HorizontalShowcaseProps)
                       <div className="col-span-1 md:col-span-5 relative h-48 md:h-full overflow-hidden border-t md:border-t-0 md:border-l border-glass-border">
                         <Image 
                           src={project.mainImage} 
-                          alt={project.title}
+                          alt={project.title} 
                           fill
+                          sizes="(max-width: 768px) 100vw, 40vw"
                           className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1500ms] ease-out hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-white via-white/10 to-transparent" />

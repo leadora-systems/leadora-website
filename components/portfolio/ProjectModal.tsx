@@ -47,7 +47,9 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 src={project.mainImage}
                 alt={project.title}
                 fill
+                sizes="(max-width: 1024px) 100vw, 1024px"
                 className="object-cover"
+                priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent" />
               
