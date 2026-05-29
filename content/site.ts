@@ -6,7 +6,13 @@ export const site = {
   salesEmail: "sales@leadorasystems.com",
   phone: "+91 XXXXX XXXXX",
   location: "India",
-  hours: "Mon–Fri: 9:00 AM – 6:00 PM IST",
+  hours: "Mon–Fri: 10:00 AM – 6:00 PM IST",
+  socials: {
+    linkedin: "https://linkedin.com/company/leadora-systems",
+    twitter: "https://twitter.com/leadorasystems",
+    instagram: "https://instagram.com/leadorasystems",
+    facebook: "https://facebook.com/leadorasystems",
+  },
 };
 
 export const heroPhrases = [
@@ -133,6 +139,14 @@ export const technologies = [
   { icon: "🐳", name: "Docker" },
   { icon: "📨", name: "Kafka" },
   { icon: "🔴", name: "Redis" },
+  { icon: "🐍", name: "Python" },
+  { icon: "🔷", name: "TypeScript" },
+  { icon: "🐘", name: "PostgreSQL" },
+  { icon: "🌩️", name: "AWS" },
+  { icon: "☸️", name: "Kubernetes" },
+  { icon: "🛠️", name: "Terraform" },
+  { icon: "🧠", name: "TensorFlow" },
+  { icon: "📈", name: "PowerBI" },
 ];
 
 export const industries = [
@@ -212,34 +226,34 @@ export const values = [
 
 export const timeline = [
   {
-    year: "2021",
-    title: "Company Founded",
+    year: "January 2026",
+    title: "The Inception",
     description:
-      "Leadora Systems was incorporated with a vision to deliver enterprise-grade software solutions to growing businesses across India.",
+      "A group of passionate engineers came together with a shared vision: to build enterprise-grade software solutions with unparalleled engineering quality and transparent delivery.",
   },
   {
-    year: "2022",
-    title: "First Enterprise Client",
+    year: "March 2026",
+    title: "Building the Foundation",
     description:
-      "Delivered our first large-scale Spring Boot microservices project for a financial services client, establishing our enterprise credentials.",
+      "Established our core processes, finalized our technology stack (focused on Cloud, AI, and modern web architectures), and began developing internal accelerators to speed up future client delivery.",
   },
   {
-    year: "2023",
-    title: "Cloud Practice Launch",
+    year: "May 2026",
+    title: "Team Expansion & Pre-Launch",
     description:
-      "Launched dedicated Azure cloud practice and DevOps services, becoming a trusted cloud partner for multiple businesses.",
+      "Scaled our founding team with exceptional talent across frontend, backend, and cloud domains. Secured our first beta enterprise partnership to test our delivery models.",
   },
   {
-    year: "2024",
-    title: "AI & Mobile Expansion",
+    year: "June 2026",
+    title: "Official Company Launch",
     description:
-      "Expanded service portfolio with AI integration capabilities and cross-platform mobile development, growing the team to 20+ engineers.",
+      "Leadora Systems officially launches! Opening our doors to businesses globally, ready to engineer scalable platforms, architect cloud infrastructure, and drive digital transformations.",
   },
   {
-    year: "2025",
-    title: "Next Phase of Growth",
+    year: "Beyond 2026",
+    title: "Scaling the Future",
     description:
-      "Scaling operations, opening new client partnerships across healthcare, retail, and SaaS verticals with an expanded global reach.",
+      "Looking ahead to launching specialized AI integration practices and expanding our global footprint across key verticals like healthcare, fintech, and digital commerce.",
   },
 ];
 
@@ -310,9 +324,40 @@ export const jobTitles = jobs.map((j) => j.title);
 export const serviceOptions = [
   "Web Development",
   "Mobile App Development",
-  "Cloud & Azure",
-  "Spring Boot / Java",
-  "AI Integration",
-  "Digital Marketing",
-  "Other",
+  "Cloud & Azure Solutions",
+  "Spring Boot / Java Development",
+  "AI Integration & Consulting",
+  "Digital Marketing 360",
+  "Search Engine Optimization (SEO)",
+  "Social Media Marketing & Management",
+  "Pay-Per-Click (PPC) Advertising",
+  "Content Strategy & Copywriting",
+  "UI/UX Design",
+  "Cybersecurity & IT Audit",
+  "SaaS & Product Engineering",
+  "Other IT Solutions",
 ];
+
+export const budgetOptionsUSD = [
+  "Under $5,000",
+  "$5,000 - $15,000",
+  "$15,000 - $35,000",
+  "$35,000 - $75,000",
+  "$75,000+",
+];
+
+export const budgetOptionsINR = [
+  "Under ₹4,00,000",
+  "₹4,00,000 - ₹12,00,000",
+  "₹12,00,000 - ₹30,00,000",
+  "₹30,00,000 - ₹60,00,000",
+  "₹60,00,000+",
+];
+
+export const timelineOptions = [
+  "Immediate (Within 1 month)",
+  "1 to 3 Months",
+  "3 to 6 Months",
+  "Just exploring / Planning",
+];
+

@@ -14,13 +14,15 @@ export async function POST(request: Request) {
       );
     }
 
-    const { name, email, company, service, message } = parsed.data;
+    const { name, email, company, service, budget, timeline, message } = parsed.data;
 
     await appendToGoogleSheet("contact", {
       name,
       email,
       company: company ?? "",
       service: service ?? "",
+      budget: budget ?? "",
+      timeline: timeline ?? "",
       message,
     });
 

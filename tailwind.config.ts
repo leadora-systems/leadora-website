@@ -9,22 +9,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        navy: "#050A14",
-        navy2: "#0A1628",
-        blue: "#1E6FFF",
-        cyan: "#00C8FF",
-        orange: "#FF6B2B",
-        text: "#F0F4FF",
-        muted: "#8899AA",
-        glass: "rgba(255,255,255,0.04)",
-        "glass-border": "rgba(255,255,255,0.08)",
+        white: "#FFFFFF",
+        lightgray: "#F7F9FC",
+        navy: "#0B1F3A",
+        blue: "#1E90FF",
+        cyan: "#00A3FF", // Slightly darker cyan for better readability on white
+        orange: "#FF8C42",
+        text: "#1A202C", // Dark text for readability
+        muted: "#4A5568", // Darker muted for readability on white
+        glass: "rgba(255, 255, 255, 0.7)",
+        "glass-border": "rgba(0, 0, 0, 0.08)",
       },
       fontFamily: {
         syne: ["var(--font-syne)", "sans-serif"],
-        sans: ["var(--font-dm-sans)", "sans-serif"],
+        montserrat: ["var(--font-montserrat)", "sans-serif"],
+        sans: ["var(--font-inter)", "sans-serif"],
+        inter: ["var(--font-inter)", "sans-serif"],
+        orbitron: ["var(--font-orbitron)", "sans-serif"],
+        spaceGrotesk: ["var(--font-space-grotesk)", "sans-serif"],
       },
       backgroundImage: {
-        grad: "linear-gradient(135deg, #1E6FFF, #00C8FF)",
+        grad: "linear-gradient(135deg, #1E90FF, #00C2FF)",
       },
     },
   },

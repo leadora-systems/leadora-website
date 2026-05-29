@@ -1,38 +1,81 @@
 import Link from "next/link";
 import { site } from "@/content/site";
+import { Linkedin, Twitter, Instagram, Facebook } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="border-t border-glass-border bg-navy2 py-16">
+    <footer className="border-t border-glass-border bg-lightgray py-16">
       <div className="container">
         <div className="footer-grid">
           <div>
             <Link href="/" className="mb-3.5 inline-flex items-center gap-2.5 no-underline">
               <div className="logo-mark">L</div>
-              <span className="font-syne text-xl font-extrabold text-text">
-                LEADORA <span className="text-cyan">SYSTEMS</span>
+              <span className="font-montserrat text-xl font-extrabold text-navy">
+                LEADORA <span className="text-blue">SYSTEMS</span>
               </span>
             </Link>
-            <p className="mt-3.5 text-sm leading-relaxed text-muted">
+            <p className="mt-3.5 text-sm leading-relaxed text-muted mb-6">
               {site.tagline}. We build scalable software, cloud infrastructure,
               and modern enterprise applications for businesses worldwide.
             </p>
+            <div className="mb-2 text-[11px] font-extrabold uppercase tracking-wider text-muted font-montserrat">
+              Follow us
+            </div>
+            <div className="flex items-center gap-3">
+              <a
+                href={site.socials.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="flex h-10 w-10 items-center justify-center rounded-lg border border-glass-border bg-white text-[#0A66C2] hover:border-[#0A66C2]/40 hover:shadow-sm transition-all"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a
+                href={site.socials.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter"
+                className="flex h-10 w-10 items-center justify-center rounded-lg border border-glass-border bg-white text-black hover:border-black/20 hover:shadow-sm transition-all"
+              >
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a
+                href={site.socials.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="flex h-10 w-10 items-center justify-center rounded-lg border border-glass-border bg-white text-[#E1306C] hover:border-[#E1306C]/40 hover:shadow-sm transition-all"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a
+                href={site.socials.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="flex h-10 w-10 items-center justify-center rounded-lg border border-glass-border bg-white text-[#1877F2] hover:border-[#1877F2]/40 hover:shadow-sm transition-all"
+              >
+                <Facebook className="h-5 w-5" />
+              </a>
+            </div>
           </div>
 
           <div>
-            <h4 className="mb-4 font-syne text-[15px] font-bold">Quick Links</h4>
+            <h4 className="mb-4 font-montserrat text-[15px] font-bold">Quick Links</h4>
             <ul className="list-none">
               {[
                 ["/", "Home"],
-                ["/about", "About Us"],
-                ["/services", "Services"],
+                ["/about", "Expertise"],
+                ["/services", "Solutions"],
+                ["/portfolio", "Case Studies"],
                 ["/careers", "Careers"],
                 ["/contact", "Contact"],
               ].map(([href, label]) => (
                 <li key={href} className="mb-2.5">
                   <Link
                     href={href}
-                    className="text-sm text-muted no-underline hover:text-cyan"
+                    className="text-sm text-muted no-underline hover:text-blue transition-colors"
                   >
                     {label}
                   </Link>
@@ -42,7 +85,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-4 font-syne text-[15px] font-bold">Services</h4>
+            <h4 className="mb-4 font-montserrat text-[15px] font-bold">Services</h4>
             <ul className="list-none">
               {[
                 "Web Development",
@@ -55,7 +98,7 @@ export function Footer() {
                 <li key={label} className="mb-2.5">
                   <Link
                     href="/services"
-                    className="text-sm text-muted no-underline hover:text-cyan"
+                    className="text-sm text-muted no-underline hover:text-blue transition-colors"
                   >
                     {label}
                   </Link>
@@ -65,39 +108,44 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-4 font-syne text-[15px] font-bold">Contact</h4>
+            <h4 className="mb-4 font-montserrat text-[15px] font-bold">Contact</h4>
             <ul className="list-none">
               <li className="mb-2.5">
                 <a
                   href={`mailto:${site.email}`}
-                  className="text-sm text-muted no-underline hover:text-cyan"
+                  className="text-sm text-muted no-underline hover:text-blue transition-colors"
                 >
                   {site.email}
                 </a>
               </li>
               <li className="mb-2.5">
-                <span className="text-sm text-muted">{site.phone}</span>
+                <a
+                  href={`tel:${site.phone.replace(/\s+/g, "")}`}
+                  className="text-sm text-muted no-underline hover:text-blue transition-colors"
+                >
+                  {site.phone}
+                </a>
               </li>
               <li className="mb-2.5">
                 <span className="text-sm text-muted">{site.location}</span>
               </li>
             </ul>
-            <div className="label mb-2 mt-5">Business Hours</div>
-            <p className="text-[13px] text-muted">{site.hours}</p>
+            <div className="label mb-2 mt-5 text-[10px] font-extrabold uppercase tracking-wider text-blue/80">Business Hours</div>
+            <p className="text-xs font-bold text-navy font-montserrat tracking-wide">{site.hours}</p>
           </div>
         </div>
 
         <div className="divider" />
         <div className="mt-6 flex flex-wrap items-center justify-between gap-3 text-[13px] text-muted">
-          <span>© 2025 {site.legalName}. All rights reserved.</span>
+          <span>© 2026 {site.legalName}. All rights reserved.</span>
           <div className="flex gap-5">
-            <Link href="/privacy" className="no-underline hover:text-cyan">
+            <Link href="/privacy" className="no-underline hover:text-blue">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="no-underline hover:text-cyan">
+            <Link href="/terms" className="no-underline hover:text-blue">
               Terms & Conditions
             </Link>
-            <Link href="/cookies" className="no-underline hover:text-cyan">
+            <Link href="/cookies" className="no-underline hover:text-blue">
               Cookie Policy
             </Link>
           </div>

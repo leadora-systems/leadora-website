@@ -28,7 +28,7 @@ export function Toast({ message }: { message: string | null }) {
 
   return (
     <div
-      className="fixed bottom-8 right-8 z-[9999] rounded-[10px] bg-grad px-6 py-3.5 text-sm font-semibold text-white shadow-[0_8px_32px_rgba(30,111,255,0.4)] transition"
+      className="fixed bottom-8 right-8 z-[9999] rounded-[10px] bg-grad px-6 py-3.5 text-sm font-semibold text-white shadow-[0_8px_32px_rgba(30,144,255,0.2)] transition"
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(10px)",

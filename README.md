@@ -24,7 +24,6 @@ Open [http://localhost:3000](http://localhost:3000).
 See `.env.example`. Set up Google Sheets: **`docs/google-sheets-setup.md`**.
 
 Without `GOOGLE_SHEETS_WEB_APP_URL`, dev mode logs submissions to the console; production requires the URL.
-
 ## Pages
 
 | Route | Description |
@@ -37,5 +36,4 @@ Without `GOOGLE_SHEETS_WEB_APP_URL`, dev mode logs submissions to the console; p
 | `/privacy` | Privacy Policy |
 | `/terms` | Terms & Conditions |
 | `/cookies` | Cookie Policy |
-
 
