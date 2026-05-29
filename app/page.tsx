@@ -20,7 +20,6 @@ import {
 } from "@/content/site";
 
 import { projects } from "@/content/projects";
-import { ProjectCard } from "@/components/portfolio/ProjectCard";
 import { HorizontalShowcase } from "@/components/portfolio/HorizontalShowcase";
 import { ProjectModal } from "@/components/portfolio/ProjectModal";
 import { useState } from "react";
@@ -28,7 +27,6 @@ import { useState } from "react";
 export default function HomePage() {
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const homeServices = services.slice(0, 6);
-  const featuredProjects = projects.slice(0, 3);
 
   return (
     <>

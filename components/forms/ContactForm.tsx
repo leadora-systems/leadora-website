@@ -1,8 +1,9 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useSearchParams } from "next/navigation";
 import { serviceOptions, budgetOptionsUSD, budgetOptionsINR, timelineOptions } from "@/content/site";
 import { contactSchema, type ContactFormData } from "@/lib/validations";
 import { Toast, useToast } from "./Toast";
@@ -11,6 +12,7 @@ export function ContactForm() {
   const { message, show } = useToast();
   const [submitting, setSubmitting] = useState(false);
   const [currency, setCurrency] = useState<"USD" | "INR">("USD");
+  const searchParams = useSearchParams();
 
   const {
     register,
@@ -21,6 +23,30 @@ export function ContactForm() {
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
   });
+
+  // Pre-fill fields based on search parameters (e.g. ?service=... &project=...)
+  useEffect(() => {
+    const serviceParam = searchParams.get("service");
+    const projectParam = searchParams.get("project");
+
+    if (serviceParam) {
+      // Find a matching service option or direct value
+      const matched = serviceOptions.find(
+        (opt) => opt.toLowerCase() === serviceParam.toLowerCase()
+      );
+      if (matched) {
+        setValue("service", matched);
+      }
+    }
+
+    if (projectParam) {
+      const decodedProject = decodeURIComponent(projectParam);
+      setValue(
+        "message",
+        `Hi Leadora Team!\n\nWe love your work on the "${decodedProject}" case study and would like to build a similar solution for our business. Let's discuss how we can partner together.`
+      );
+    }
+  }, [searchParams, setValue]);
 
   const activeBudgetOptions = currency === "USD" ? budgetOptionsUSD : budgetOptionsINR;
 
