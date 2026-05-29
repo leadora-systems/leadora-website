@@ -17,7 +17,8 @@
   h3,
   h4,
   h5 {
-    @apply font-syne text-navy;
+    font-family: var(--font-montserrat), sans-serif;
+    @apply text-navy;
   }
 }
 
@@ -32,7 +33,7 @@
     @apply mb-4 inline-block text-[11px] font-semibold uppercase tracking-[3px] text-blue;
   }
   .section-title {
-    @apply mb-4 text-[clamp(24px,3.5vw,38px)] font-bold leading-[1.15] text-navy;
+    @apply mb-4 text-[clamp(24px,3.5vw,34px)] font-bold leading-[1.15] text-navy;
   }
   .section-sub {
     @apply max-w-[560px] text-base leading-relaxed text-muted;
@@ -41,10 +42,20 @@
     @apply bg-grad bg-clip-text text-transparent;
   }
   .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-lg border-0 bg-grad px-7 py-3.5 text-sm font-semibold text-white no-underline transition hover:-translate-y-px hover:shadow-lg hover:shadow-blue/20 hover:opacity-90;
+    @apply inline-flex items-center gap-2 rounded-xl border-0 bg-grad px-7 py-3.5 text-sm font-semibold text-white no-underline
+           transition-all duration-300
+           hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue/25 hover:brightness-110;
   }
   .btn-outline {
     @apply inline-flex items-center gap-2 rounded-lg border border-glass-border bg-white px-7 py-3 text-sm font-semibold text-navy no-underline transition hover:-translate-y-px hover:border-blue hover:shadow-sm;
+  }
+  
+  /* Liquid Glass / Glassmorphic CTA Design for Global UI Buttons */
+  .btn-glass-cta {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-6 py-3 text-[13px] font-extrabold uppercase tracking-wider text-white backdrop-blur-md transition-all duration-300 shadow-[0_8px_32px_rgba(255,255,255,0.03)] hover:bg-white/20 hover:border-white/40 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(255,255,255,0.08)];
+  }
+  .btn-glass-cta-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-black/10 bg-black/5 px-6 py-3 text-[13px] font-extrabold uppercase tracking-wider text-navy backdrop-blur-md transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.02)] hover:bg-black/10 hover:border-black/20 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)];
   }
   .divider {
     @apply mx-0 h-px bg-gradient-to-r from-transparent via-blue/20 to-transparent;
@@ -59,7 +70,8 @@
     @apply mb-[18px] flex h-12 w-12 items-center justify-center rounded-xl border border-blue/10 bg-gradient-to-br from-blue/10 to-cyan/5;
   }
   .tag {
-    @apply rounded-full border border-blue/10 bg-blue/5 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-blue;
+    @apply rounded-full border border-blue/15 bg-blue/[0.06] px-3 py-1 text-[11px] font-semibold tracking-wide text-blue
+           transition-colors duration-200 hover:bg-blue/10 hover:border-blue/25;
   }
   .page-header {
     @apply relative overflow-hidden px-0 pb-[72px] pt-[140px] text-center;
@@ -80,7 +92,7 @@
     @apply relative z-[1] mt-3 text-[17px] text-muted;
   }
   .cta-banner {
-    @apply relative overflow-hidden rounded-3xl border border-blue/10 bg-gradient-to-br from-[#F7F9FC] to-white px-12 py-16 text-center shadow-lg shadow-blue/5;
+    @apply relative overflow-hidden rounded-3xl border border-blue/10 bg-gradient-to-br from-[#F0F6FF] to-white px-12 py-16 text-center shadow-lg shadow-blue/5;
   }
   .cta-banner h2 {
     @apply mb-3.5 text-[clamp(24px,3.5vw,38px)] font-extrabold text-navy;
@@ -89,22 +101,33 @@
     @apply mb-8 text-muted;
   }
   .why-grid {
-    @apply mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-4;
+    @apply mt-6 grid gap-5 sm:grid-cols-2 xl:grid-cols-4;
   }
   .services-grid {
     @apply mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3;
   }
   .services-grid-lg {
-    @apply mt-12 grid gap-5 md:grid-cols-2;
+    @apply mt-12 grid gap-6 md:grid-cols-2;
   }
   .service-card {
-    @apply flex flex-col rounded-2xl border border-glass-border bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-blue/30 hover:shadow-[0_16px_48px_rgba(30,144,255,0.1)];
+    @apply relative flex flex-col rounded-2xl border border-glass-border bg-white p-8 shadow-sm overflow-hidden
+           transition-all duration-300 ease-out
+           hover:-translate-y-1.5 hover:border-blue/25
+           hover:shadow-[0_20px_56px_rgba(30,144,255,0.11)];
+  }
+  .service-card::before {
+    content: "";
+    @apply absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-blue to-cyan
+           scale-y-0 origin-bottom transition-transform duration-300 ease-out rounded-l-2xl;
+  }
+  .service-card:hover::before {
+    @apply scale-y-100;
   }
   .service-card h3 {
-    @apply mb-3 text-lg font-bold text-navy;
+    @apply mb-3 text-xl font-bold text-navy tracking-tight;
   }
   .service-card p {
-    @apply flex-1 text-sm leading-relaxed text-muted;
+    @apply flex-1 text-[14px] leading-relaxed text-muted;
   }
   .tech-grid {
     @apply mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5;
@@ -125,7 +148,7 @@
     @apply rounded-2xl border border-glass-border bg-white p-7 shadow-sm;
   }
   .vm-grid {
-    @apply mt-10 grid gap-5 md:grid-cols-2;
+    @apply mt-6 grid gap-5 md:grid-cols-2;
   }
   .vm-card {
     @apply rounded-2xl border border-glass-border bg-white p-8 shadow-sm;
@@ -137,10 +160,29 @@
     @apply rounded-xl border border-glass-border bg-white p-6 text-center shadow-sm;
   }
   .counter-num {
-    @apply font-syne text-3xl font-extrabold grad-text;
+    font-family: var(--font-montserrat), sans-serif;
+    @apply text-3xl font-extrabold grad-text;
   }
   .values-grid {
     @apply mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4;
+  }
+  .value-card {
+    @apply rounded-[24px] border border-glass-border bg-white p-8 shadow-sm relative overflow-hidden transition-all duration-500 cursor-pointer;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(247, 249, 252, 0.8) 100%);
+  }
+  .value-card::before {
+    content: "";
+    @apply absolute inset-0 opacity-0 transition-opacity duration-500 pointer-events-none;
+    background: linear-gradient(135deg, rgba(30, 144, 255, 0.1), rgba(0, 194, 255, 0.05));
+  }
+  .value-card:hover {
+    @apply -translate-y-2 border-blue/40 shadow-[0_20px_40px_rgba(30,144,255,0.15)];
+  }
+  .value-card:hover::before {
+    @apply opacity-100;
+  }
+  .value-icon-wrapper {
+    @apply mb-6 flex h-16 w-16 items-center justify-center rounded-[18px] bg-[#F0F5FA] text-[32px] transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6 group-hover:bg-gradient-to-br group-hover:from-blue group-hover:to-cyan group-hover:shadow-[0_10px_25px_rgba(30,144,255,0.3)];
   }
   .timeline {
     @apply relative mt-12 border-l-0 pl-8;
@@ -188,8 +230,32 @@
   .form-full {
     @apply sm:col-span-2;
   }
+  .dna-card {
+    @apply rounded-[20px] border border-glass-border bg-white p-9 shadow-sm relative overflow-hidden;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.6) 100%);
+    backdrop-filter: blur(12px);
+  }
+  .dna-card::before {
+    content: "";
+    @apply absolute inset-0 bg-gradient-to-br from-blue/0 to-cyan/0 transition-all duration-700 pointer-events-none;
+  }
+  .dna-card:hover::before {
+    @apply from-blue/5 to-cyan/10;
+  }
+  .dna-item {
+    @apply flex items-center gap-3 text-[15px] p-3 rounded-xl transition-all duration-300;
+  }
+  .dna-item:hover {
+    @apply bg-blue/5 translate-x-1;
+  }
+  .dna-item:hover .dna-icon {
+    @apply scale-125 text-cyan;
+  }
+  .dna-icon {
+    @apply text-lg text-blue transition-all duration-300;
+  }
   .contact-layout {
-    @apply mt-12 grid gap-8 lg:grid-cols-[1fr_1.2fr];
+    @apply mt-12 grid gap-8 lg:grid-cols-[1fr_1.2fr] items-stretch;
   }
   .contact-card {
     @apply flex items-start gap-3.5 rounded-xl border border-glass-border bg-white px-6 py-5 shadow-sm;
@@ -198,7 +264,8 @@
     @apply mb-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr];
   }
   .logo-mark {
-    @apply flex h-9 w-9 items-center justify-center rounded-[9px] bg-grad font-syne text-base font-extrabold text-white;
+    font-family: var(--font-montserrat), sans-serif;
+    @apply flex h-9 w-9 items-center justify-center rounded-[9px] bg-grad text-base font-extrabold text-white;
     animation: logoPulse 3s ease infinite;
   }
   .reveal {
@@ -316,3 +383,45 @@
   -webkit-text-fill-color: transparent;
   animation: gradientShift 3s linear infinite;
 }
+
+/* Services hero: slow shimmer/shine on the gradient heading word */
+@keyframes servicesShine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes shine {
+  100% {
+    transform: translateX(300%) skewX(12deg);
+  }
+}
+
+.services-hero-shine {
+  background: linear-gradient(
+    100deg,
+    #1e90ff 0%,
+    #00c2ff 30%,
+    #a8d8ff 48%,
+    #ffffff 52%,
+    #a8d8ff 56%,
+    #00c2ff 70%,
+    #1e90ff 100%
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: servicesShine 5s linear infinite;
+}
+
+/* Custom CSS keyframe spin definition */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+

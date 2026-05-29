@@ -16,6 +16,7 @@ In Apps Script: **Project Settings** → add script property:
 | Property | Value |
 |----------|--------|
 | `SHEET_SECRET` | A long random string you also put in `.env.local` as `GOOGLE_SHEETS_SECRET` |
+| `RESUME_FOLDER_ID` | Google Drive folder id where resumes are stored (e.g. `Leadora Systems/Careers/Resumes`) |
 
 ## 3. Deploy as web app
 
@@ -40,5 +41,5 @@ Submit the contact form on your site. You should see a new row on the **Contact*
 
 | Tab | Columns |
 |-----|---------|
-| Contact | Timestamp, Name, Email, Company, Service, Message |
-| Careers | Timestamp, Name, Email, Phone, Position, Message |
+| Contact | Timestamp, Name, Email, Company, Service, Budget, Timeline, Message |
+| Careers | Timestamp, Name, Email, Phone, Position, Message, Resume URL, Resume File Name, Resume File ID |
