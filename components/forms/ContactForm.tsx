@@ -1,14 +1,37 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState, useEffect } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useSearchParams } from "next/navigation";
 import { serviceOptions, budgetOptionsUSD, budgetOptionsINR, timelineOptions } from "@/content/site";
 import { contactSchema, type ContactFormData } from "@/lib/validations";
 import { Toast, useToast } from "./Toast";
 
+function ContactFormFallback() {
+  return (
+    <div className="font-sans apply-form !mt-0 animate-pulse" aria-hidden="true">
+      <div className="mb-6 h-7 w-48 rounded-lg bg-lightgray" />
+      <div className="form-grid">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <div key={i} className="h-10 rounded-lg bg-lightgray" />
+        ))}
+        <div className="form-full h-28 rounded-lg bg-lightgray" />
+      </div>
+      <div className="mt-6 h-12 rounded-xl bg-lightgray" />
+    </div>
+  );
+}
+
 export function ContactForm() {
+  return (
+    <Suspense fallback={<ContactFormFallback />}>
+      <ContactFormFields />
+    </Suspense>
+  );
+}
+
+function ContactFormFields() {
   const { message, show } = useToast();
   const [submitting, setSubmitting] = useState(false);
   const [currency, setCurrency] = useState<"USD" | "INR">("USD");
@@ -202,3 +225,4 @@ export function ContactForm() {
     </div>
   );
 }
+
