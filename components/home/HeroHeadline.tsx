@@ -8,7 +8,7 @@ export function HeroHeadline() {
     >
       <span className="block uppercase text-white">WE ARE</span>
       <span className="block uppercase text-white">BUILDING</span>
-      <span className="block uppercase text-white">SCALABLE</span>
+      <span className="block uppercase text-orange">SCALABLE</span>
       <span className="block uppercase text-white">SOLUTIONS</span>
     </h1>
   );

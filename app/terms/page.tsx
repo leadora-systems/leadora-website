@@ -4,7 +4,8 @@ import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata(
   "Terms & Conditions",
-  `Terms and conditions for using ${site.legalName} website.`
+  `Terms and conditions for using the ${site.legalName} website and services.`,
+  { canonical: "/terms", noIndex: true }
 );
 
 export default function TermsPage() {

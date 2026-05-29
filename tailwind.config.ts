@@ -14,7 +14,7 @@ const config: Config = {
         navy: "#0B1F3A",
         blue: "#1E90FF",
         cyan: "#00A3FF", // Slightly darker cyan for better readability on white
-        orange: "#FF8C42",
+        orange: "#FF6B00", // Vibrant orange matching the logo
         text: "#1A202C", // Dark text for readability
         muted: "#4A5568", // Darker muted for readability on white
         glass: "rgba(255, 255, 255, 0.7)",
