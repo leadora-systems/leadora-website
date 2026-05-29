@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Montserrat, Orbitron, Space_Grotesk } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
+import { CookieConsent } from "@/components/layout/CookieConsent";
 import { defaultMetadata } from "@/lib/metadata";
 import "./globals.css";
 
@@ -42,6 +43,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );
