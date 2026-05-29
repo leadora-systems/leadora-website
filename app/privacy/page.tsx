@@ -4,7 +4,8 @@ import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata(
   "Privacy Policy",
-  `Privacy policy for ${site.legalName}.`
+  `Privacy policy for ${site.legalName}. Learn how we collect, use, and protect your personal data.`,
+  { canonical: "/privacy", noIndex: true }
 );
 
 export default function PrivacyPage() {

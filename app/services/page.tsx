@@ -10,8 +10,23 @@ import { ServicesCta } from "@/components/services/ServicesCta";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata(
-  "Services",
-  "Web development, mobile apps, cloud & Azure, Spring Boot, AI integration, and digital marketing services."
+  "IT Services & Solutions — Web, Cloud, AI & Mobile Development",
+  "Leadora Systems offers end-to-end IT services including web development, mobile apps, Azure cloud solutions, Spring Boot microservices, AI integration, ecommerce, and digital marketing.",
+  {
+    canonical: "/services",
+    keywords: [
+      "web development services India",
+      "mobile app development India",
+      "Azure cloud solutions",
+      "Spring Boot microservices",
+      "AI integration services India",
+      "ecommerce development",
+      "digital marketing India",
+      "IT services Hyderabad",
+      "enterprise software solutions",
+      "React development services",
+    ],
+  }
 );
 
 export default function ServicesPage() {

@@ -4,7 +4,8 @@ import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata(
   "Cookie Policy",
-  `Cookie policy for ${site.legalName}.`
+  `Cookie policy for ${site.legalName}. Learn how we use cookies and how you can manage them.`,
+  { canonical: "/cookies", noIndex: true }
 );
 
 export default function CookiesPage() {

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { site } from "@/content/site";
 import { Linkedin, Twitter, Instagram, Facebook } from "lucide-react";
 
@@ -9,9 +10,9 @@ export function Footer() {
         <div className="footer-grid">
           <div>
             <Link href="/" className="mb-3.5 inline-flex items-center gap-2.5 no-underline">
-              <div className="logo-mark">L</div>
+              <Image src="/leadora-logo.png" alt="Leadora Systems Logo" width={36} height={36} />
               <span className="font-montserrat text-xl font-extrabold text-navy">
-                LEADORA <span className="text-blue">SYSTEMS</span>
+                LEADORA <span className="text-orange">SYSTEMS</span>
               </span>
             </Link>
             <p className="mt-3.5 text-sm leading-relaxed text-muted mb-6">

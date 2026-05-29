@@ -30,7 +30,7 @@
     @apply py-24;
   }
   .label {
-    @apply mb-4 inline-block text-[11px] font-semibold uppercase tracking-[3px] text-blue;
+    @apply mb-4 inline-block text-[11px] font-semibold uppercase tracking-[3px] text-orange;
   }
   .section-title {
     @apply mb-4 text-[clamp(24px,3.5vw,34px)] font-bold leading-[1.15] text-navy;
