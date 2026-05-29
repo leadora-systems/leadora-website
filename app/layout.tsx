@@ -3,6 +3,7 @@ import { Inter, Montserrat, Orbitron, Space_Grotesk } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { defaultMetadata, baseUrl } from "@/lib/metadata";
+import { CookieConsent } from "@/components/layout/CookieConsent";
 import "./globals.css";
 
 const organizationSchema = {
@@ -97,6 +98,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );
