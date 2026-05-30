@@ -6,8 +6,18 @@ import { pageMetadata } from "@/lib/metadata";
 import { ArrowDown, Clock } from "lucide-react";
 
 export const metadata = pageMetadata(
-  "Contact",
-  "Contact Leadora Systems for IT consulting, software development, and cloud solutions."
+  "Contact Us — IT Consulting & Software Development Enquiries",
+  "Get in touch with Leadora Systems for IT consulting, custom software development, cloud solutions, and digital transformation projects. Based in Hyderabad, serving clients globally.",
+  {
+    canonical: "/contact",
+    keywords: [
+      "contact Leadora Systems",
+      "IT consulting enquiry India",
+      "hire software development team India",
+      "custom software development quote",
+      "cloud solutions contact Hyderabad",
+    ],
+  }
 );
 
 export default function ContactPage() {

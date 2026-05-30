@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -41,11 +42,16 @@ export function Navbar() {
           
           {/* Logo */}
           <Link href="/" className="flex shrink-0 items-center gap-2.5 no-underline">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue/10 text-xl font-bold text-blue border border-blue/20">
-              L
-            </div>
+            <Image
+              src="/leadora-logo.png"
+              alt="Leadora Systems Logo"
+              width={80}
+              height={80}
+              className="shrink-0"
+              priority
+            />
             <span className="font-montserrat text-lg lg:text-xl font-extrabold text-white hidden sm:block whitespace-nowrap">
-              LEADORA <span className="text-blue">SYSTEMS</span>
+              LEADORA <span className="text-orange">SYSTEMS</span>
             </span>
           </Link>
 
