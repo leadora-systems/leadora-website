@@ -8,8 +8,19 @@ import { aboutDna, values } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata(
-  "About Us",
-  "Learn about Leadora Systems — engineering excellence, vision, mission, and company values."
+  "About Us — IT Company in Hyderabad, India",
+  "Leadora Systems is a Hyderabad-based IT company specialising in enterprise software, cloud infrastructure, and digital transformation. Meet our team, vision, mission, and values.",
+  {
+    canonical: "/about",
+    keywords: [
+      "about Leadora Systems",
+      "IT company Hyderabad",
+      "software company India",
+      "enterprise software team",
+      "cloud technology company India",
+      "digital transformation company Hyderabad",
+    ],
+  }
 );
 
 export default function AboutPage() {

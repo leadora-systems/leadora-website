@@ -6,8 +6,20 @@ import { Reveal } from "@/components/ui/Reveal";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata(
-  "Portfolio",
-  "Explore our portfolio of enterprise software, cloud solutions, and innovative digital products built by Leadora Systems."
+  "Portfolio — Enterprise Software & Cloud Case Studies",
+  "Explore Leadora Systems' portfolio of enterprise software projects, cloud migrations, mobile apps, and digital transformation success stories for clients across India and globally.",
+  {
+    canonical: "/portfolio",
+    keywords: [
+      "software development portfolio India",
+      "enterprise software case studies",
+      "cloud migration projects",
+      "mobile app portfolio",
+      "React project examples",
+      "Spring Boot case study",
+      "Azure deployment portfolio",
+    ],
+  }
 );
 
 export default function PortfolioPage() {
