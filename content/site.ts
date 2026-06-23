@@ -2,9 +2,10 @@ export const site = {
   name: "Leadora Systems",
   legalName: "Leadora Systems Private Limited",
   tagline: "Leading Digital Innovation",
-  email: "info@leadorasystems.com",
-  salesEmail: "sales@leadorasystems.com",
-  phone: "+91 97051 51157",
+  email: "leadorasystems@gmail.com",
+  salesEmail: "leadorasystems@gmail.com",
+  phone: "+91 90103 03377",
+  whatsapp: "+91 90103 03377",
   location: "Jayabheri Silicon Towers, Sreebagh Colony, Hyderabad, Kothaguda, Telangana 500084",
   hours: "Mon–Fri: 10:00 AM – 6:00 PM IST",
   socials: {
