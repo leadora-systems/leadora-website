@@ -15,14 +15,7 @@ const links = [
 
 export function Navbar() {
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     setMenuOpen(false);
@@ -31,11 +24,7 @@ export function Navbar() {
   return (
     <nav
       id="navbar"
-      className={`fixed left-0 right-0 top-0 z-[1000] py-[18px] transition duration-300 ${
-        scrolled
-          ? "bg-black/80 shadow-[0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-xl"
-          : pathname === "/" ? "bg-transparent" : "bg-black"
-      }`}
+      className="fixed left-0 right-0 top-0 z-[9999] py-[18px] transition duration-300 bg-black/80 shadow-[0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-xl"
     >
       <div className="container px-6 max-w-[1400px]">
         <div className="flex items-center justify-between">
@@ -50,7 +39,7 @@ export function Navbar() {
               className="shrink-0"
               priority
             />
-            <span className="font-montserrat text-lg lg:text-xl font-extrabold text-white hidden sm:block whitespace-nowrap">
+            <span className="font-montserrat text-base sm:text-lg lg:text-xl font-extrabold text-white whitespace-nowrap">
               LEADORA <span className="text-orange">SYSTEMS</span>
             </span>
           </Link>
